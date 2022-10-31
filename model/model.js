@@ -1,0 +1,133 @@
+const model = {
+  //app
+  app: {
+    //What page you are on
+    activePage: 'home',
+    pages: [
+      {
+        name: 'home',
+        profilePages: ['home', 'for you'],
+      },
+      {
+        name: 'leaderboard',
+        profilePages: ['leaderboard'],
+      },
+      {
+        name: 'createNewEvent',
+        profilePages: ['createNewEvent'],
+      },
+      {
+        name: 'calendar',
+        profilePages: ['active', 'history', 'upcoming'],
+      },
+      {
+        name: 'profile',
+        profilePages: ['profile', 'reviews', 'eventsCreated'],
+      },
+    ],
+
+    //state
+    state: {
+      selectedCard: null, //Card that is selected by event ID, this expands the card
+    },
+  },
+  //input
+  inputs: {
+    searchBar: '',
+    //user controlled filter
+    filters: {
+      sortAscending: false,
+      intensity: null,
+      date: Date.now(),
+      category: '',
+      location: null, //Uses your location to pinpoint and show events in your area
+    },
+    attendEvent: false, //Button to attend events
+
+    //create new event inputs
+    newEventName: 'Skriv inn en kort tittel',
+    newEventDescTitle: 'Legg til en beskrivende emnetittel',
+    newEventDescription:
+      'Beskriv økten din her, gjerne si litt om hvor dere skal møtes og hva økten går ut på...',
+    newEventLocation: '',
+    newEventCategory: [Løping, Styrke, Svømming, Sykling],
+    newEventIntensity: null, //value between 1-4
+    newEventMaxAttendees: 4, // value between 1-4. Creator counts as 1 of the attendees but does not have to be included in the maxAttendees
+    newEventCreateBtn: '',
+  },
+
+  //data
+  data: {
+    categories: [
+      {
+        name: 'Løping',
+        bgImg: './images/bg/løping.jpg',
+        icon: './images/icons/sko.png',
+        subCategories: ['Langdistanseløp', 'Friløp', 'Halvmaraton'],
+      },
+      {
+        name: 'Styrke',
+        bgImg: './images/bg/vekter.jpg',
+        icon: './images/icons/bicep.png',
+        subCategories: ['Rygg', 'Ben', 'Armer', 'Bryst'],
+      },
+      {
+        name: 'Sykling',
+        bgImg: './images/bg/sykling.jpg',
+        icon: './images/icons/swimming.png',
+        subCategories: ['Spinning', 'Downhill', 'Terreng', 'Vei'],
+      },
+      {
+        name: 'Svømming',
+        bgImg: './images/bg/svømmehall.png',
+        icon: './images/icons/swimmer.png',
+        subCategories: ['Butterfly', 'Synkronsvømming'],
+      },
+    ],
+
+    //User data
+    users: [
+      {
+        id: 0,
+        userName: 'Løftekongen86',
+        userDescription:
+          'Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋',
+        userTags: ['Pumping', 'Proteinpulver', 'Vekter', 'Roars', 'Trening'],
+        userPoints: 10991,
+        userRanking: 1073,
+        userCreatedEventsCounter: 64,
+        userAttendedEventsCounter: 248,
+        userNotifications: [],
+        userUpcomingEvents: [],
+        userEventHistory: [],
+        userManageableEvents: [],
+        userReviews: [
+          {
+            reviewSubmitter: 'dag.einar67',
+            reviewScore: 5,
+            reviewDescription: 'Morsom kar',
+          },
+        ],
+      },
+    ],
+    //Event data
+    events: [
+      {
+        eventId: 0,
+        eventOwnerId: 0,
+        eventName: 'Løpetur i skogen',
+        eventLocation: 'Nøtterøy',
+        eventIcon: this.categories[0].icon, // This gets its value from the category array by a controller function
+        eventBg: this.categories[0].bgImg, //  This gets its value from the category array by a controller function
+        eventSubCategory: 'Friløp',
+        eventIntensity: 1,
+        eventDate: '25.09.22',
+        eventTime: '12:00',
+        eventDescTitle: 'Overkommelig skogstur for alle som vil',
+        eventDescription:
+          'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
+        eventGoers: [],
+      },
+    ],
+  },
+};
