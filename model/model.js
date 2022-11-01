@@ -1,4 +1,4 @@
-const model = {
+let model = {
   //app
   app: {
     //What page you are on
@@ -6,19 +6,19 @@ const model = {
     pages: [
       {
         name: 'home',
-        profilePages: ['home', 'for you'],
+        homePages: ['home', 'forYou'],
       },
       {
         name: 'leaderboard',
-        profilePages: ['leaderboard'],
+        leaderboardPages: ['leaderboard'],
       },
       {
         name: 'createNewEvent',
-        profilePages: ['createNewEvent'],
+        createnewPages: ['createNewEvent'],
       },
       {
         name: 'calendar',
-        profilePages: ['active', 'history', 'upcoming'],
+        calendarPages: ['active', 'history', 'upcoming'],
       },
       {
         name: 'profile',
@@ -50,10 +50,20 @@ const model = {
     newEventDescription:
       'Beskriv økten din her, gjerne si litt om hvor dere skal møtes og hva økten går ut på...',
     newEventLocation: '',
-    newEventCategory: [Løping, Styrke, Svømming, Sykling],
+    newEventCategory: ['Løping', 'Styrke', 'Svømming', 'Sykling'],
     newEventIntensity: null, //value between 1-4
     newEventMaxAttendees: 4, // value between 1-4. Creator counts as 1 of the attendees but does not have to be included in the maxAttendees
     newEventCreateBtn: '',
+
+    //reviews
+    giveEventReview: {
+      inspiredScore: 5,
+      gainScore: 5,
+    },
+    giveAttendantReview: {
+      reviewScore: 0,
+      reviewText: 'Skriv en setning her...',
+    },
   },
 
   //data
@@ -90,6 +100,7 @@ const model = {
       {
         id: 0,
         userName: 'Løftekongen86',
+        userProfileImg: './images/profiles/1.jpg',
         userDescription:
           'Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋',
         userTags: ['Pumping', 'Proteinpulver', 'Vekter', 'Roars', 'Trening'],
@@ -117,8 +128,10 @@ const model = {
         eventOwnerId: 0,
         eventName: 'Løpetur i skogen',
         eventLocation: 'Nøtterøy',
-        eventIcon: this.categories[0].icon, // This gets its value from the category array by a controller function
-        eventBg: this.categories[0].bgImg, //  This gets its value from the category array by a controller function
+        eventIcon: '', // This gets its value from the category array by a controller function this.categories[0].icon
+        eventImg: './images/bg/løping.jpg', //  This gets its value from the category array by a controller function this.categories[0].bgImg
+        eventImgOpen: './images/bg/løpingOpen.jpg', //  This gets its value from the category array by a controller function this.categories[0].bgImg
+        eventCategory: 'Løping',
         eventSubCategory: 'Friløp',
         eventIntensity: 1,
         eventDate: '25.09.22',
@@ -126,7 +139,59 @@ const model = {
         eventDescTitle: 'Overkommelig skogstur for alle som vil',
         eventDescription:
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
-        eventGoers: [],
+        eventParticipants: [
+          {
+            userId: 0,
+            userImg: './images/profiles/1.jpg',
+          },
+          {
+            userId: 1,
+            userImg: './images/profiles/2.jpg',
+          },
+          {
+            userId: 2,
+            userImg: './images/profiles/3.jpg',
+          },
+          {
+            userId: 3,
+            userImg: './images/profiles/4.jpg',
+          },
+        ],
+      },
+      {
+        eventId: 0,
+        eventOwnerId: 0,
+        eventName: 'Løpetur i skogen',
+        eventLocation: 'Nøtterøy',
+        eventIcon: '', // This gets its value from the category array by a controller function this.categories[0].icon
+        eventImg: './images/bg/løping.jpg', //  This gets its value from the category array by a controller function this.categories[0].bgImg
+        eventImgOpen: './images/bg/løpingOpen.jpg', //  This gets its value from the category array by a controller function this.categories[0].bgImg
+        eventCategory: 'Løping',
+        eventSubCategory: 'Friløp',
+        eventIntensity: 1,
+        eventDate: '25.09.22',
+        eventTime: '12:00',
+        eventDescTitle: 'Overkommelig skogstur for alle som vil',
+        eventDescription:
+          'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
+        eventParticipants: [
+          {
+            userId: 0,
+            userImg: './images/profiles/1.jpg',
+          },
+          {
+            userId: 1,
+            userImg: './images/profiles/2.jpg',
+          },
+          {
+            userId: 2,
+            userImg: './images/profiles/3.jpg',
+          },
+          {
+            userId: 3,
+            userImg: './images/profiles/4.jpg',
+          },
+        ],
       },
     ],
   },

@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+body {
+  background: #6b6b6b;
+  margin: 0;
+  padding: 0;
+}
+
+.eventCard {
+  position: relative;
+  width: 400px;
+  height: 132px;
+  background-color: #1e1e1e;
+  border: 1px solid 6B6B6B;
+  color: #fff;
+}
+
+.eventCardOpen {
+  position: relative;
+  width: 400px;
+  height: 264px;
+  background-color: #1e1e1e;
+  border: 1px solid 6B6B6B;
+  color: #fff;
+}
+
+.eventDateTime {
+  position: absolute;
+  margin-top: 24%;
+  margin-left: 2%;
+  color: rgba(255, 255, 255, 0.8);
+}
+.eventDateTimeOpen {
+  position: absolute;
+  margin-top: 60%;
+  margin-left: 2%;
+  font-size: 15;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.eventImgBg {
+  position: absolute;
+  margin-left: 6%;
+  opacity: 15%;
+}
+
+.eventInfoContainer {
+  position: relative;
+  margin-left: 6%;
+}
+
+.eventTitle {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+  margin-top: 0px;
+  margin-left: 5px;
+  position: absolute;
+}
+
+.eventLocation {
+  position: absolute;
+  margin-top: 25px;
+  margin-left: 5px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.eventDescContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  margin-left: 5px;
+  width: 245px;
+  height: 157px;
+  margin-top: 50px;
+  background-color: #1e1e1e;
+  border: 2px solid #676464;
+  border-radius: 3px;
+}
+
+.eventDescTitle {
+  position: absolute;
+  margin-top: -110px;
+}
+
+.eventDescription {
+  font-size: 12;
+  opacity: 85%;
+  margin-top: 40px;
+}
+
+.eventParticipants {
+  width: 34px;
+  height: 34px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.participantContainer {
+  position: absolute;
+  margin-left: 285px;
+  margin-top: 50px;
+  font-size: 15;
+}
+.participantImgContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-row-gap: 0px;
+  grid-column-gap: 0px;
+}
+
+.eventSignUpBtn {
+  position: absolute;
+  width: 110px;
+  height: 30px;
+  font-weight: bold;
+  background-color: #1e1e1e;
+  color: #ffff;
+  border: 1px solid #676464;
+  border-radius: 3px;
+  margin-top: 70px;
+}
+
+.showLess {
+  position: absolute;
+  text-align: center;
+  margin-left: 45%;
+  margin-top: 59%;
+  font-size: 12;
+  cursor: pointer;
+}
+.showMore {
+  position: absolute;
+  text-align: center;
+  margin-left: 50%;
+  margin-top: 27%;
+  font-size: 12;
+  cursor: pointer;
+}
+
+.intensityContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 53px;
+  margin-top: 25px;
+  position: absolute;
+}
+
+.eventCategoryContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 325px;
+  margin-top: 5px;
+}
+
+.intensityBar {
+  position: absolute;
+  height: 262px;
+  width: 24px;
+  border: 1px solid #1e1e1e;
+}
+
+.intensityBarClosed {
+  position: absolute;
+  height: 130px;
+  width: 24px;
+  border: 1px solid #1e1e1e;
+}
+
+.eventCategoryContainerClosed {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 355px;
+}
+
+.intensityContainerClosed {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 335px;
+  margin-top: 85px;
+}
