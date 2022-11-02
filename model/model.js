@@ -159,16 +159,16 @@ let model = {
         ],
       },
       {
-        eventId: 0,
+        eventId: 1,
         eventOwnerId: 0,
         eventName: 'Løpetur i skogen',
         eventLocation: 'Nøtterøy',
         eventIcon: '', // This gets its value from the category array by a controller function this.categories[0].icon
         eventImg: './images/bg/løping.jpg', //  This gets its value from the category array by a controller function this.categories[0].bgImg
         eventImgOpen: './images/bg/løpingOpen.jpg', //  This gets its value from the category array by a controller function this.categories[0].bgImg
-        eventCategory: 'Løping',
-        eventSubCategory: 'Friløp',
-        eventIntensity: 1,
+        eventCategory: 'Styrke',
+        eventSubCategory: 'Rygg',
+        eventIntensity: 3,
         eventDate: '25.09.22',
         eventTime: '12:00',
         eventDescTitle: 'Overkommelig skogstur for alle som vil',
