@@ -1,0 +1,225 @@
+.createNewContainer{
+height: 750px;
+background-color: #1e1e1e;
+color: #fff;
+}
+
+.newEventDescriptionContainer{
+box-sizing: border-box;
+position: absolute;
+width: 321px;
+height: 309px;
+margin-left: 37px;
+margin-top: 250px;
+background: #1E1E1E;
+border: 2px solid #676464;
+border-radius: 3px;
+}
+
+#newEventLongDesc {
+position: absolute;
+width: 317px;
+height: 400px;
+padding: 12px;
+margin-top: 50px;
+resize: none;
+background: none;
+border: none;
+color: #fff;
+}
+
+#newEventDescTitle {
+width: 315px;
+height: 35px;
+margin-top: 10px;
+margin-left: 1px;
+position: absolute;
+background: none;
+border: none;
+border-bottom: 2px solid #6B6B6B;
+text-align: center;
+color: #fff;
+font-size: 15;
+}
+
+#newEventDescTitle:focus {
+outline: none;
+border: none;
+border-bottom: 2px solid #6B6B6B;
+overflow: auto;
+outline: none;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+}
+
+#newEventLongDesc:focus {
+outline: none;
+border: none;
+overflow: auto;
+outline: none;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+}
+
+.deltagereContainer {
+position: absolute;
+margin-top: 600px;
+margin-left: 190px;
+user-select: none;
+}
+
+.makeNewEventBtn{
+position: absolute;
+margin-top: 700px;
+margin-left: 140px;
+width: 120px;
+height: 30px;
+background: #1E1E1E;
+border: 1px solid #6B6B6B;
+box-shadow: 2px 3px 5px 3px rgba(0, 0, 0, 0.25);
+border-radius: 3px;
+color: #fff;
+text-align: center;
+font-weight: bold;
+}
+
+.deltagereText {
+margin-top: -20px;
+position: absolute;
+}
+
+.deltagereBtnMinus {
+  margin-top: 5px;
+	margin-left: -30px;
+  position: absolute;
+}
+
+.deltagereBtnPlus {
+  margin-top: -25px;
+	margin-left: 35px;
+  position: absolute;
+}
+
+.deltagereBtnMinus:active{
+	transform: translateY(2px);
+}
+.deltagereBtnPlus:active{
+	transform: translateY(2px);
+}
+
+.newEventMaxAttendees{
+  color: #6B6B6B;
+  margin-top: 5px;
+  margin-left: 10px; 
+  user-select: none;
+}
+
+.eventTitleInput{
+border: none;
+position: absolute;
+margin-left: 100px;
+margin-top: 40px;
+text-align: center;
+width: 209px;
+height: 50px;
+background-color: #1E1E1E;
+border-bottom: 2px solid #6B6B6B;
+color: white;
+}
+
+.eventTitleInput:focus {
+outline: none;
+border: none;
+border-bottom: 2px solid #6B6B6B;
+overflow: auto;
+outline: none;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+}
+
+.newEventLocationInput{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+margin-top: 105px;
+margin-left: 60px;
+width: 100px;
+position: absolute;
+}
+
+.newEventLocationInputField{
+  background-color: #1E1E1E;
+  border: none;
+  border-bottom: 3px solid #6B6B6B;
+}
+
+.newEventLocationInputField:focus {
+  outline: none;
+  border-bottom: 3px solid #6B6B6B;
+}
+
+.newEventLocationInputField input{
+height: 40px;
+
+}
+
+.eventCategoryInputContainer{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+position: absolute;
+margin-top: 107px;
+margin-left: 225px;
+}
+
+.eventCategoryInputContainer label {
+font-size: 15px;
+}
+
+.eventDateInput{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
+margin-top: 200px;
+margin-left: 35px;
+position: absolute;
+background-color: #1E1E1E;
+color: #fff;
+border: none;
+border-bottom: 3px solid #6B6B6B;
+}
+
+.eventDateInput:focus {
+  outline: none;
+  border-bottom: 3px solid #6B6B6B;
+}
+
+.newEventIntensityContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  margin-top: 200px;
+  margin-left: 260px;
+}
+
+select {
+	height: 40px;
+	background-color: #1E1E1E;
+	color: #fff;
+	border: none;
+  border-bottom: 3px solid #6B6B6B;
+}
+
+select:focus {
+	outline: none;
+	border: none;
+	border-bottom: 3px solid #6B6B6B;
+}
