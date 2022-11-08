@@ -18,7 +18,7 @@ function drawCards() {
 			isCardOpen
 				? // Open Card
 				  `
-        <div class="eventCardOpen">
+        <div class="eventCardOpen"  id="#${i}">
           <div class="intensityBar" style="background-color: ${setIntensityBar(
 						i
 					)};" ></div>
@@ -69,7 +69,7 @@ function drawCards() {
         `
 				: //Closed Card
 				  `
-        <div class="eventCard">
+        <div class="eventCard"  id="#${i}">
           <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
 						i
 					)};" ></div>
@@ -98,7 +98,7 @@ function drawCards() {
               ${setIntensityIcon(i)}
               <div>intensitet</div>
             </div>
-          <div onclick="openCard(${i})" class="showMore">Vis mer </br> ﹀</div>
+          <div href="#${i}" onclick="openCard(${i})" class="showMore">Vis mer</br> ﹀</div>
         </div>
       `
 		}</div>`;

@@ -2,7 +2,7 @@ let model = {
 	//app
 	app: {
 		//What page you are on
-		activePage: "createNewEvent",
+		activePage: "leaderboard",
 		pages: [
 			{
 				name: "home",

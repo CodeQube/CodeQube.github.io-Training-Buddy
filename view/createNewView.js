@@ -16,7 +16,9 @@ function drawNewEvent() {
 	 = this.value">
   <div class="newEventLocationInput">
   <span>Sted</span>
-  <input class="newEventLocationInputField" onclick="navigator.geolocation.getCurrentPosition(successCallback, errorCallback)" type="text" placeholder="Hvor skal økten være?">
+  <input value="${
+		model.inputs.newEventLocation
+	}" class="newEventLocationInputField" onclick="navigator.geolocation.getCurrentPosition(successCallback, errorCallback)" type="text" placeholder="Hvor skal økten være?">
   </div>
   
   <div class="eventCategoryInputContainer">
@@ -83,12 +85,10 @@ function drawCategoriesList() {
 }
 
 const successCallback = (position) => {
-	console.log(position);
+	// console.log(position);
 	let lat = position.coords.latitude;
 	let long = position.coords.longitude;
-	// fetch(
-	// 	`https://api.maptiler.com/geocoding/${long},${lat}.json?key=d8oK0KJnl1dSUcmckomp`
-	// );
+	setLocation(long, lat);
 };
 
 const errorCallback = (error) => {

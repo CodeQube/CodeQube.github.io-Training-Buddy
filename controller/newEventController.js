@@ -4,10 +4,10 @@ function handleCreateNewEvent() {
 		eventId: 0,
 		eventOwnerId: 0,
 		eventName: event.newEventName,
-		eventLocation: "Nøtterøy",
+		eventLocation: event.newEventLocation,
 		eventIcon: `${event.newEventCategory}Icon`, // This gets its value from the category array by a controller function this.categories[0].icon
 		eventImg: model.inputs.newEventBgImg, //  This gets its value from the category array by a controller function this.categories[0].bgImg
-		eventImgOpen: `./images/bg/${event.newEventCategory}Open.jpg`, //  This gets its value from the category array by a controller function this.categories[0].bgImg
+		eventImgOpen: model.inputs.newEventBgImg, //  This gets its value from the category array by a controller function this.categories[0].bgImg
 		eventCategory: model.inputs.newEventCategory,
 		eventSubCategory: event.newEventSubCategory,
 		eventIntensity: event.newEventIntensity,
@@ -87,4 +87,16 @@ function formatDateTime(value) {
 	let date = value.split("T").splice(0, 1).toString();
 	let time = value.split("T").splice(1, 1).toString();
 	(model.inputs.newEventDate = date), (model.inputs.newEventTime = time);
+}
+
+async function setLocation(long, lat) {
+	let api = `https://api.maptiler.com/geocoding/${long},${lat}.json?key=d8oK0KJnl1dSUcmckomp`;
+	fetch(api)
+		.then((response) => response.json())
+		.then(
+			(json) => (model.inputs.newEventLocation = json.features[2].place_name)
+		);
+	// drawConfirmLocation(str);
+	console.log(model.inputs.newEventLocation);
+	mainView();
 }
