@@ -9,6 +9,7 @@ function mainView() {
 		forYouView();
 	}
 	if (activePage === "leaderboard") {
+		// setUserRanking(); // Henter ut userPoints og sorterer brukere etter riktig rangering
 		leaderboardView();
 	}
 	if (activePage === "createNewEvent") {
@@ -24,6 +25,7 @@ function mainView() {
 		calendarUpcomingView();
 	}
 	if (activePage === "profile") {
+		// setUserRanking(); // Henter ut userPoints og sorterer brukere etter riktig rangering
 		profileBioView();
 	}
 	if (activePage === "reviews") {

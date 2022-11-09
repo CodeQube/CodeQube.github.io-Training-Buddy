@@ -2,7 +2,7 @@ let model = {
 	//app
 	app: {
 		//What page you are on
-		activePage: "leaderboard",
+		activePage: "profile",
 		pages: [
 			{
 				name: "home",
@@ -29,6 +29,8 @@ let model = {
 		//state
 		state: {
 			selectedCard: null, //Card that is selected by event ID, this expands the card
+			activeUser: "Løftekongen86",
+			selectedUser: "Løftekongen86",
 		},
 	},
 	//input
@@ -71,6 +73,8 @@ let model = {
 
 	//data
 	data: {
+		leaderboardArray: [],
+
 		categories: [
 			{
 				name: "Løping",
@@ -103,12 +107,128 @@ let model = {
 			{
 				id: 0,
 				userName: "Løftekongen86",
+				userLocation: "Larvik",
+				userProfileImg: "./images/profileImg/0.jpg",
+				userDescription:
+					"Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋",
+				userTags: ["Pumping", "Proteinpulver", "Vekter", "Roars", "Trening"],
+				userPoints: 4050,
+				userRanking: null,
+				userCreatedEventsCounter: 64,
+				userAttendedEventsCounter: 248,
+				userNotifications: [],
+				userUpcomingEvents: [],
+				userEventHistory: [],
+				userManageableEvents: [],
+				userReviews: [
+					{
+						reviewSubmitter: "dag.einar67",
+						reviewScore: 5,
+						reviewDescription: "Morsom kar",
+					},
+				],
+			},
+			{
+				id: 1,
+				userName: "britt.elin69",
 				userProfileImg: "./images/profiles/1.jpg",
 				userDescription:
 					"Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋",
 				userTags: ["Pumping", "Proteinpulver", "Vekter", "Roars", "Trening"],
-				userPoints: 10991,
-				userRanking: 1073,
+				userPoints: 4700,
+				userRanking: null,
+				userCreatedEventsCounter: 64,
+				userAttendedEventsCounter: 248,
+				userNotifications: [],
+				userUpcomingEvents: [],
+				userEventHistory: [],
+				userManageableEvents: [],
+				userReviews: [
+					{
+						reviewSubmitter: "dag.einar67",
+						reviewScore: 5,
+						reviewDescription: "Morsom kar",
+					},
+				],
+			},
+			{
+				id: 2,
+				userName: "kjellwastaken",
+				userProfileImg: "./images/profiles/1.jpg",
+				userDescription:
+					"Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋",
+				userTags: ["Pumping", "Proteinpulver", "Vekter", "Roars", "Trening"],
+				userPoints: 780,
+				userRanking: null,
+				userCreatedEventsCounter: 64,
+				userAttendedEventsCounter: 248,
+				userNotifications: [],
+				userUpcomingEvents: [],
+				userEventHistory: [],
+				userManageableEvents: [],
+				userReviews: [
+					{
+						reviewSubmitter: "dag.einar67",
+						reviewScore: 5,
+						reviewDescription: "Morsom kar",
+					},
+				],
+			},
+			{
+				id: 3,
+				userName: "jensintens",
+				userProfileImg: "./images/profiles/1.jpg",
+				userDescription:
+					"Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋",
+				userTags: ["Pumping", "Proteinpulver", "Vekter", "Roars", "Trening"],
+				userPoints: 1045,
+				userRanking: null,
+				userCreatedEventsCounter: 64,
+				userAttendedEventsCounter: 248,
+				userNotifications: [],
+				userUpcomingEvents: [],
+				userEventHistory: [],
+				userManageableEvents: [],
+				userReviews: [
+					{
+						reviewSubmitter: "dag.einar67",
+						reviewScore: 5,
+						reviewDescription: "Morsom kar",
+					},
+				],
+			},
+			{
+				id: 4,
+				userName: "hugobigg",
+				userProfileImg: "./images/profiles/1.jpg",
+				userDescription:
+					"Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋",
+				userTags: ["Pumping", "Proteinpulver", "Vekter", "Roars", "Trening"],
+				userPoints: 150,
+				userRanking: null,
+				userCreatedEventsCounter: 64,
+				userAttendedEventsCounter: 248,
+				userNotifications: [],
+				userUpcomingEvents: [],
+				userEventHistory: [],
+				userManageableEvents: [],
+				userReviews: [
+					{
+						reviewSubmitter: "dag.einar67",
+						reviewScore: 5,
+						reviewDescription: "Morsom kar",
+					},
+				],
+			},
+			{
+				id: 5,
+				userName: "glenntore420",
+				userProfileImg: "./images/profiles/1.jpg",
+				userDescription:
+					"Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋",
+				userTags: ["Pumping", "Proteinpulver", "Vekter", "Roars", "Trening"],
+				userPoints: 4051,
+				userRanking: null,
 				userCreatedEventsCounter: 64,
 				userAttendedEventsCounter: 248,
 				userNotifications: [],

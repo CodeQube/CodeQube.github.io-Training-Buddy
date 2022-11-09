@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&display=swap');
+
+.leaderboardHeader {
+  border-bottom: 2px solid #FFFFFF;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.leaderboardHeader h1 {
+  color: #FFFFFF;
+  font-size: 30;
+	margin-left: 155px;
+	margin-top: 30px;
+}
+
+.rangering{
+  font-size: 15;
+  color: #6B6B6B;
+  margin-left: 28px;
+}
+
+.brukernavn{
+  font-size: 15;
+	color: #6B6B6B;
+	margin-left: 90px;
+}
+
+.poeng{
+  font-size: 15;
+  color: #6B6B6B;
+	margin-left: 100px;
+}
+
+.listContainer{
+  display: flex;
+  flex-direction: column;
+  background-color: #1E1E1E;
+}
+
+.leaderboardDivContainer{
+	margin: 0;
+	margin-top: 5px;
+	padding: 0;
+
+display: flex;
+flex-direction: row;
+font-family: 'Inter', sans-serif;
+}
+
+.leaderboardDivLiten{
+	margin-left: 3px;
+	border-radius: 3px;
+	background-color: #282828;
+  color: #FFFFFF;
+	text-align: center;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	width: 95px;
+	height: 40px;
+}
+
+.leaderboardDivStor{
+	border-radius: 3px;
+	width: 193px;
+	height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	background-color: #282828;
+  color: #FFFFFF;
+	text-align: center;
+	margin-left: 3px;
+  cursor: pointer;
+}
+
+.activeUser{
+  border: 2px solid #FFFFFF;
+}
+

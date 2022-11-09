@@ -25,7 +25,7 @@ function drawFooter() {
     <div onclick="setActivePage('leaderboard')" style="cursor: pointer;">${leaderboardButton}</div>
     <div onclick="setActivePage('createNew')" style="cursor: pointer;">${createNewEventButton}</div>
     <div onclick="setActivePage('calendar')" style="cursor: pointer;">${calendarButton}</div>
-    <div onclick="setActivePage('profile')" style="cursor: pointer;">${profileButton}</div>
+    <div onclick="userClick('${model.app.state.activeUser}')" style="cursor: pointer;">${profileButton}</div>
   </div>
   `;
 	return footerHTML;

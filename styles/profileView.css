@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+
+.bioContainer{
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+  height: 487px;
+}
+
+
+
+.profileHeader {
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+  height: 297px;
+  border-bottom: 2px solid #6B6B6B;
+  font-family: 'Inter', sans-serif;
+}
+
+.icon{
+    position: absolute;
+    margin-left: 360px;
+    margin-top: 10px;
+}
+
+.profileNameLoc {
+    text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.profileUsername{
+  font-size: 20px;
+}
+
+.dotContainer{
+    display: flex;
+    position: absolute;
+    margin-left: 170px;
+    margin-top: -20px;
+    text-align: center;
+    font-size: 75px;
+    padding: 0;
+}
+
+.dotInactive{
+opacity: 50%;
+}
+
+.profileLoc{
+  font-size: 15px;
+  color: #6B6B6B
+}
+
+.profileHeader img{
+    border-radius: 50%;
+    width: 96px;
+    height: 96px;
+    margin-left: 150px;
+    margin-top: 30px;
+}
+
+.profileStatsContainer {
+  margin-top: 85px;
+}
+
+.profilePoeng{
+    position: absolute;
+  color: #FFFFFF;
+    margin-left: 40px;
+    margin-top: 2px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.laget{
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 157px;
+  display: flex;
+  flex-direction: column; 
+  /* justify-content:center; */
+  align-items:center;
+}
+.deltatt{
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 280px;
+  display: flex;
+  flex-direction: column; 
+  align-items:center;
+}
+
+.profileDesc{
+  font-size: 20px;
+  text-align: center;
+}
+
+.profileTag{
+    text-align: center;
+    border: 1px solid #6B6B6B;
+    width: 101px;
+    height: 20px;
+}
+
+.profileTagContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
