@@ -2,7 +2,7 @@
 mainView();
 function mainView() {
   let activePage = model.app.activePage;
-  
+
   if (activePage === 'home') {
     homeView();
   }
