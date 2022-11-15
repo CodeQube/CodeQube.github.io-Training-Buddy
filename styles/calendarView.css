@@ -1,18 +1,29 @@
-.calendarHeader {
+.calendarHeaderContainer {
   background-color: #1e1e1e;
   color: #fff;
-  display: flex;
-  justify-content: space-evenly;
-  height: 60px;
+  height: 104px;
+}
+.calendarHeaderContainer span {
+  margin-top: 50px;
+}
+.calendarHeaderContainer svg {
+  margin-top: 50px;
 }
 
 .calendarContainer {
-  height: 724px;
+  height: 681px;
   width: 400px;
   background-color: #1e1e1e;
   overflow: scroll;
+  border: 1px solid #6b6b6b;
 }
 
 .calendarContainer::-webkit-scrollbar {
   display: none;
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }

@@ -15,9 +15,23 @@ function getCurrentUser() {
 
 function getSubmitter(i) {
   let submitter = getCurrentUser().userReviews[i].reviewSubmitter;
-  
-    return model.data.users.find((user) => user.userName === submitter);
-  
+  return model.data.users.find((user) => user.userName === submitter);
+}
+
+function getUpcomingEvents(i) {
+  return model.data.events.filter(
+    (event) =>
+      event.eventParticipants[i].userName === model.app.state.activeUser
+  );
+}
+
+function hardcoreTestFunc() {
+  let filter = '';
+  model.data.events.forEach(
+    (event) =>
+      (filter = event.eventParticipants.filter((user) => user.userName))
+  );
+  console.log(filter);
 }
 
 //Alternativ Løsning

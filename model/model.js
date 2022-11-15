@@ -282,19 +282,19 @@ let model = {
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
         eventParticipants: [
           {
-            userId: 0,
+            userName: 'Eline',
             userImg: './images/profiles/1.jpg',
           },
           {
-            userId: 1,
+            userName: 1,
             userImg: './images/profiles/2.jpg',
           },
           {
-            userId: 2,
+            userName: 2,
             userImg: './images/profiles/3.jpg',
           },
           {
-            userId: 3,
+            userName: 3,
             userImg: './images/profiles/4.jpg',
           },
         ],
@@ -302,7 +302,7 @@ let model = {
       },
       {
         eventId: 1,
-        eventOwnerId: 0,
+        eventOwnerId: 'britt.elin69',
         eventName: 'Løpetur i skogen',
         eventLocation: 'Nøtterøy',
         eventIcon: '', // This gets its value from the category array by a controller function this.categories[0].icon
@@ -318,19 +318,19 @@ let model = {
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
         eventParticipants: [
           {
-            userId: 0,
+            userName: 'Løftekongen86',
             userImg: './images/profiles/1.jpg',
           },
           {
-            userId: 1,
+            userName: 'kjellwastaken',
             userImg: './images/profiles/2.jpg',
           },
           {
-            userId: 2,
+            userName: 'jensintens',
             userImg: './images/profiles/3.jpg',
           },
           {
-            userId: 3,
+            userName: 'hugobig',
             userImg: './images/profiles/4.jpg',
           },
         ],
@@ -353,19 +353,19 @@ let model = {
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
         eventParticipants: [
           {
-            userId: 0,
+            userName: 'Løftekongen86',
             userImg: './images/profiles/1.jpg',
           },
           {
-            userId: 1,
+            userName: 'kjellwastaken',
             userImg: './images/profiles/2.jpg',
           },
           {
-            userId: 2,
+            userName: 'jensintens',
             userImg: './images/profiles/3.jpg',
           },
           {
-            userId: 3,
+            userName: 'hugobig',
             userImg: './images/profiles/4.jpg',
           },
         ],
@@ -388,19 +388,19 @@ let model = {
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
         eventParticipants: [
           {
-            userId: 0,
+            userName: 0,
             userImg: './images/profiles/1.jpg',
           },
           {
-            userId: 1,
+            userName: 1,
             userImg: './images/profiles/2.jpg',
           },
           {
-            userId: 2,
+            userName: 2,
             userImg: './images/profiles/3.jpg',
           },
           {
-            userId: 3,
+            userName: 3,
             userImg: './images/profiles/4.jpg',
           },
         ],
@@ -423,19 +423,19 @@ let model = {
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
         eventParticipants: [
           {
-            userId: 0,
+            userName: 0,
             userImg: './images/profiles/1.jpg',
           },
           {
-            userId: 1,
+            userName: 1,
             userImg: './images/profiles/2.jpg',
           },
           {
-            userId: 2,
+            userName: 2,
             userImg: './images/profiles/3.jpg',
           },
           {
-            userId: 3,
+            userName: 3,
             userImg: './images/profiles/4.jpg',
           },
         ],
@@ -458,19 +458,19 @@ let model = {
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
         eventParticipants: [
           {
-            userId: 0,
+            userName: 0,
             userImg: './images/profiles/1.jpg',
           },
           {
-            userId: 1,
+            userName: 1,
             userImg: './images/profiles/2.jpg',
           },
           {
-            userId: 2,
+            userName: 2,
             userImg: './images/profiles/3.jpg',
           },
           {
-            userId: 3,
+            userName: 3,
             userImg: './images/profiles/4.jpg',
           },
         ],

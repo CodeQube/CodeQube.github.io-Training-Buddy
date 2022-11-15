@@ -222,9 +222,8 @@ body {
   background-color: #1e1e1e;
   color: #fff;
   border-radius: 3px;
-  border: 1px solid #676464;
   width: 400px;
-  height: 60px;
+  height: 104px;
   align-items: center;
   justify-content: space-around;
 
@@ -291,18 +290,17 @@ body {
   margin-left: 11px;
   margin-top: 9px;
   font-weight: bold;
-  
 }
 
 .contentContainer {
-  height: 724px;
+  height: 681px;
   /* border: 2px solid green; */
   background-color: #1e1e1e;
   z-index: 2;
   overflow: scroll;
+  border: 1px solid #676464;
 }
 
 .contentContainer::-webkit-scrollbar {
   display: none;
 }
-
