@@ -262,6 +262,31 @@ let model = {
         ],
       },
     ],
+
+    //Participants
+    eventParticipants: [
+      {
+        eventId: 1,
+        userName: 'Løftekongen86',
+        userImg: './images/profiles/1.jpg',
+      },
+      {
+        eventId: 1,
+        userName: 'kjellwastaken',
+        userImg: './images/profiles/2.jpg',
+      },
+      {
+        eventId: 1,
+        userName: 'jensintens',
+        userImg: './images/profiles/3.jpg',
+      },
+      {
+        eventId: 1,
+        userName: 'hugobig',
+        userImg: './images/profiles/4.jpg',
+      },
+    ],
+
     //Event data
     events: [
       {
@@ -280,25 +305,6 @@ let model = {
         eventDescTitle: 'Overkommelig skogstur for alle som vil',
         eventDescription:
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
-        eventParticipants: [
-          {
-            userName: 'Eline',
-            userImg: './images/profiles/1.jpg',
-          },
-          {
-            userName: 1,
-            userImg: './images/profiles/2.jpg',
-          },
-          {
-            userName: 2,
-            userImg: './images/profiles/3.jpg',
-          },
-          {
-            userName: 3,
-            userImg: './images/profiles/4.jpg',
-          },
-        ],
-        eventConfirmedParticipants: [],
       },
       {
         eventId: 1,
@@ -308,32 +314,14 @@ let model = {
         eventIcon: '', // This gets its value from the category array by a controller function this.categories[0].icon
         eventImg: './images/bg/løping.jpg', //  This gets its value from the category array by a controller function this.categories[0].bgImg
         eventImgOpen: './images/bg/løpingOpen.jpg', //  This gets its value from the category array by a controller function this.categories[0].bgImg
-        eventCategory: 'Styrke',
-        eventSubCategory: 'Rygg',
+        eventCategory: 'Løping',
+        eventSubCategory: 'Friløp',
         eventIntensity: 3,
         eventDate: '25.09.22',
         eventTime: '12:00',
         eventDescTitle: 'Overkommelig skogstur for alle som vil',
         eventDescription:
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
-        eventParticipants: [
-          {
-            userName: 'Løftekongen86',
-            userImg: './images/profiles/1.jpg',
-          },
-          {
-            userName: 'kjellwastaken',
-            userImg: './images/profiles/2.jpg',
-          },
-          {
-            userName: 'jensintens',
-            userImg: './images/profiles/3.jpg',
-          },
-          {
-            userName: 'hugobig',
-            userImg: './images/profiles/4.jpg',
-          },
-        ],
       },
       {
         eventId: 2,
@@ -351,24 +339,6 @@ let model = {
         eventDescTitle: 'Overkommelig skogstur for alle som vil',
         eventDescription:
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
-        eventParticipants: [
-          {
-            userName: 'Løftekongen86',
-            userImg: './images/profiles/1.jpg',
-          },
-          {
-            userName: 'kjellwastaken',
-            userImg: './images/profiles/2.jpg',
-          },
-          {
-            userName: 'jensintens',
-            userImg: './images/profiles/3.jpg',
-          },
-          {
-            userName: 'hugobig',
-            userImg: './images/profiles/4.jpg',
-          },
-        ],
       },
       {
         eventId: 3,
@@ -386,24 +356,6 @@ let model = {
         eventDescTitle: 'Overkommelig skogstur for alle som vil',
         eventDescription:
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
-        eventParticipants: [
-          {
-            userName: 0,
-            userImg: './images/profiles/1.jpg',
-          },
-          {
-            userName: 1,
-            userImg: './images/profiles/2.jpg',
-          },
-          {
-            userName: 2,
-            userImg: './images/profiles/3.jpg',
-          },
-          {
-            userName: 3,
-            userImg: './images/profiles/4.jpg',
-          },
-        ],
       },
       {
         eventId: 4,
@@ -421,24 +373,6 @@ let model = {
         eventDescTitle: 'Overkommelig skogstur for alle som vil',
         eventDescription:
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
-        eventParticipants: [
-          {
-            userName: 0,
-            userImg: './images/profiles/1.jpg',
-          },
-          {
-            userName: 1,
-            userImg: './images/profiles/2.jpg',
-          },
-          {
-            userName: 2,
-            userImg: './images/profiles/3.jpg',
-          },
-          {
-            userName: 3,
-            userImg: './images/profiles/4.jpg',
-          },
-        ],
       },
       {
         eventId: 5,
@@ -456,24 +390,6 @@ let model = {
         eventDescTitle: 'Overkommelig skogstur for alle som vil',
         eventDescription:
           'Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.',
-        eventParticipants: [
-          {
-            userName: 0,
-            userImg: './images/profiles/1.jpg',
-          },
-          {
-            userName: 1,
-            userImg: './images/profiles/2.jpg',
-          },
-          {
-            userName: 2,
-            userImg: './images/profiles/3.jpg',
-          },
-          {
-            userName: 3,
-            userImg: './images/profiles/4.jpg',
-          },
-        ],
       },
     ],
   },

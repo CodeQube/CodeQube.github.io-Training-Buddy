@@ -37,28 +37,33 @@ function drawCalendarHeader() {
 //View for upcomming events
 // function calendarUpcomingView() {
 //   //Filtrere eventer som du har meldt deg på etter dato og tid
-//   for (let i = 0; i < getUpcomingEvents(i).length; i++) {
+//   for (let i = 0; i < filter.length; i++) {
 
 //   }
-//   // console.log(getUpcomingEvents(i));
+//   // console.log(filter);
 // }
 
 function calendarUpcomingView() {
+  let events = model.data.eventParticipants
+    .filter((ep) => ep.userName === model.app.state.activeUser)
+    .map((ep) => model.data.events.find((e) => e.eventId === ep.eventId));
+
   let cardsHtml = '';
-  for (let i = 0; i < getUpcomingEvents.length; i++) {
-    console.log(getUpcomingEvents(i));
+  for (let i = 0; i < events.length; i++) {
+    const event = events[i];
+    // console.log(getUpcomingEvents);
     const isCardOpen = model.app.state.selectedCard === i;
     cardsHtml += `<div>${
       isCardOpen
         ? // Open Card
           `
-        <div class="eventCardOpen"  id="#${i}">
+        <div class="eventCardOpen" id="#${i}">
           <div class="intensityBar" style="background-color: ${setIntensityBar(
             i
           )};" ></div>
               <div class="eventImgContainer">
                 <img class="eventImgBg" src="${
-                  getUpcomingEvents(i)[i].eventImgOpen
+                  event.eventImgOpen
                 }" alt="Event image">
             </div>
             <div class="participantContainer">
@@ -73,32 +78,20 @@ function calendarUpcomingView() {
               <button class="eventSignUpBtn">Meld på</button>
             </div>
             <div class="eventInfoContainer">
-              <div class="eventTitle">${getUpcomingEvents(i)[i].eventName}</div>
-              <div class="eventLocation">${
-                getUpcomingEvents(i)[i].eventLocation
-              }</div>
+              <div class="eventTitle">${event.eventName}</div>
+              <div class="eventLocation">${event.eventLocation}</div>
               <div class="eventCategoryContainer">
-                <div class="eventSubCategory">${
-                  getUpcomingEvents(i)[i].eventSubCategory
-                }</div>
+                <div class="eventSubCategory">${event.eventSubCategory}</div>
                 ${setEventCategory(i)}
               </div>
               <div class="eventDescContainer">
-                <div class="eventDescTitle">${
-                  getUpcomingEvents(i)[i].eventDescTitle
-                }</div>
-                <div class="eventDescription">${
-                  getUpcomingEvents(i)[i].eventDescription
-                }</div>
+                <div class="eventDescTitle">${event.eventDescTitle}</div>
+                <div class="eventDescription">${event.eventDescription}</div>
               </div>
 
               <div class="eventDateTimeOpen">
-                <div class="eventTime">${
-                  getUpcomingEvents(i)[i].eventTime
-                }</div>
-                <div class="eventDate">${
-                  getUpcomingEvents(i)[i].eventDate
-                }</div>
+                <div class="eventTime">${event.eventTime}</div>
+                <div class="eventDate">${event.eventDate}</div>
               </div>
             </div>
             <div onclick="openCard(${i})" class="showLess">Vis mindre </br> ︿</div>
@@ -112,24 +105,18 @@ function calendarUpcomingView() {
             i
           )};" ></div>
             <div class="eventImgContainer">
-              <img class="eventImgBg" src="${
-                getUpcomingEvents(i)[i].eventImg
-              }" alt="Event image">
+              <img class="eventImgBg" src="${event.eventImg}" alt="Event image">
           </div>
           <div class="eventInfoContainer">
-            <div class="eventTitle">${getUpcomingEvents(i)[i].eventName}</div>
+            <div class="eventTitle">${event.eventName}</div>
             <div class="eventDateTime">
-              <div class="eventTime">${getUpcomingEvents(i)[i].eventTime}</div>
-              <div class="eventDate">${getUpcomingEvents(i)[i].eventDate}</div>
+              <div class="eventTime">${event.eventTime}</div>
+              <div class="eventDate">${event.eventDate}</div>
             </div>
-            <div class="eventLocation">${
-              getUpcomingEvents(i)[i].eventLocation
-            }</div>
+            <div class="eventLocation">${event.eventLocation}</div>
           </div>
           <div class="eventCategoryContainerClosed">
-              <div class="eventSubCategory">${
-                getUpcomingEvents(i)[i].eventSubCategory
-              }</div>
+              <div class="eventSubCategory">${event.eventSubCategory}</div>
               ${setEventCategory(i)}
             </div>
             <div class="intensityContainerClosed">

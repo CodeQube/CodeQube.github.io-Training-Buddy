@@ -1,9 +1,9 @@
 // Main Home View For the app
 function homeView() {
-	let header = drawHeaderHome();
-	let content = drawCards();
-	let footer = drawFooter();
-	document.getElementById("app").innerHTML = `
+  let header = drawHeaderHome();
+  let content = drawCards();
+  let footer = drawFooter();
+  document.getElementById('app').innerHTML = `
   ${drawHeaderHome()}
   <div class="contentContainer">${drawCards()}</div>
   ${drawFooter()}
@@ -11,21 +11,21 @@ function homeView() {
 }
 
 function drawCards() {
-	let cardsHtml = "";
-	for (let i = 0; i < model.data.events.length; i++) {
-		const isCardOpen = model.app.state.selectedCard === i;
-		cardsHtml += `<div>${
-			isCardOpen
-				? // Open Card
-				  `
+  let cardsHtml = '';
+  for (let i = 0; i < model.data.events.length; i++) {
+    const isCardOpen = model.app.state.selectedCard === i;
+    cardsHtml += `<div>${
+      isCardOpen
+        ? // Open Card
+          `
         <div class="eventCardOpen"  id="#${i}">
           <div class="intensityBar" style="background-color: ${setIntensityBar(
-						i
-					)};" ></div>
+            i
+          )};" ></div>
               <div class="eventImgContainer">
                 <img class="eventImgBg" src="${
-									model.data.events[i].eventImgOpen
-								}" alt="Event image">
+                  model.data.events[i].eventImgOpen
+                }" alt="Event image">
             </div>
             <div class="participantContainer">
               <div>Påmeldte</div>
@@ -41,21 +41,21 @@ function drawCards() {
             <div class="eventInfoContainer">
               <div class="eventTitle">${model.data.events[i].eventName}</div>
               <div class="eventLocation">${
-								model.data.events[i].eventLocation
-							}</div>
+                model.data.events[i].eventLocation
+              }</div>
               <div class="eventCategoryContainer">
                 <div class="eventSubCategory">${
-									model.data.events[i].eventSubCategory
-								}</div>
+                  model.data.events[i].eventSubCategory
+                }</div>
                 ${setEventCategory(i)}
               </div>
               <div class="eventDescContainer">
                 <div class="eventDescTitle">${
-									model.data.events[i].eventDescTitle
-								}</div>
+                  model.data.events[i].eventDescTitle
+                }</div>
                 <div class="eventDescription">${
-									model.data.events[i].eventDescription
-								}</div>
+                  model.data.events[i].eventDescription
+                }</div>
               </div>
 
               <div class="eventDateTimeOpen">
@@ -67,16 +67,16 @@ function drawCards() {
 
           </div>
         `
-				: //Closed Card
-				  `
+        : //Closed Card
+          `
         <div class="eventCard"  id="#${i}">
           <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
-						i
-					)};" ></div>
+            i
+          )};" ></div>
             <div class="eventImgContainer">
               <img class="eventImgBg" src="${
-								model.data.events[i].eventImg
-							}" alt="Event image">
+                model.data.events[i].eventImg
+              }" alt="Event image">
           </div>
           <div class="eventInfoContainer">
             <div class="eventTitle">${model.data.events[i].eventName}</div>
@@ -85,13 +85,13 @@ function drawCards() {
               <div class="eventDate">${model.data.events[i].eventDate}</div>
             </div>
             <div class="eventLocation">${
-							model.data.events[i].eventLocation
-						}</div>
+              model.data.events[i].eventLocation
+            }</div>
           </div>
           <div class="eventCategoryContainerClosed">
               <div class="eventSubCategory">${
-								model.data.events[i].eventSubCategory
-							}</div>
+                model.data.events[i].eventSubCategory
+              }</div>
               ${setEventCategory(i)}
             </div>
             <div class="intensityContainerClosed">
@@ -101,90 +101,90 @@ function drawCards() {
           <div href="#${i}" onclick="openCard(${i})" class="showMore">Vis mer</br> ﹀</div>
         </div>
       `
-		}</div>`;
-	}
-	return cardsHtml;
+    }</div>`;
+  }
+  return cardsHtml;
 }
 
 function setIntensityIcon(i) {
-	let intensityColor = "";
-	let intensityIcon = "";
-	switch (model.data.events[i].eventIntensity) {
-		case 1:
-			intensityColor = "#38FF17";
-			intensityIcon = `<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http:www.w3.org/2000/svg">
+  let intensityColor = '';
+  let intensityIcon = '';
+  switch (model.data.events[i].eventIntensity) {
+    case 1:
+      intensityColor = '#38FF17';
+      intensityIcon = `<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http:www.w3.org/2000/svg">
       <path d="M19.764 24V0H24.5304V24H19.764ZM13.4089 6H18.1752V24H13.4089V6ZM7.05375 12H11.8201V24H7.05375V12ZM0.698608 18H5.46496V24H0.698608V18Z" fill="${intensityColor}"/>
       </svg>`;
-			break;
-		case 2:
-			intensityColor = "#FFC700";
-			intensityIcon = `<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http:www.w3.org/2000/svg">
+      break;
+    case 2:
+      intensityColor = '#FFC700';
+      intensityIcon = `<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http:www.w3.org/2000/svg">
       <path d="M19.764 24V0H24.5304V24H19.764ZM13.4089 6H18.1752V24H13.4089V6ZM7.05375 12H11.8201V24H7.05375V12ZM0.698608 18H5.46496V24H0.698608V18Z" fill="${intensityColor}"/>
       </svg>`;
-			break;
-		case 3:
-			intensityColor = "#F24E1E";
-			intensityIcon = `<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http:www.w3.org/2000/svg">
+      break;
+    case 3:
+      intensityColor = '#F24E1E';
+      intensityIcon = `<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http:www.w3.org/2000/svg">
       <path d="M19.764 24V0H24.5304V24H19.764ZM13.4089 6H18.1752V24H13.4089V6ZM7.05375 12H11.8201V24H7.05375V12ZM0.698608 18H5.46496V24H0.698608V18Z" fill="${intensityColor}"/>
       </svg>`;
-			break;
-		case 4:
-			intensityColor = "#FF0000";
-			intensityIcon = `<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http:www.w3.org/2000/svg">
+      break;
+    case 4:
+      intensityColor = '#FF0000';
+      intensityIcon = `<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http:www.w3.org/2000/svg">
       <path d="M19.764 24V0H24.5304V24H19.764ZM13.4089 6H18.1752V24H13.4089V6ZM7.05375 12H11.8201V24H7.05375V12ZM0.698608 18H5.46496V24H0.698608V18Z" fill="${intensityColor}"/>
       </svg>`;
-			break;
-	}
+      break;
+  }
 
-	return intensityIcon;
+  return intensityIcon;
 }
 
 function setIntensityBar(i) {
-	let intensityColor = "";
-	switch (model.data.events[i].eventIntensity) {
-		case 1:
-			intensityColor = "#38FF17";
-			break;
-		case 2:
-			intensityColor = "#FFC700";
-			break;
-		case 3:
-			intensityColor = "#F24E1E";
-			break;
-		case 4:
-			intensityColor = "#FF0000";
-			break;
-	}
-	return intensityColor;
+  let intensityColor = '';
+  switch (model.data.events[i].eventIntensity) {
+    case 1:
+      intensityColor = '#38FF17';
+      break;
+    case 2:
+      intensityColor = '#FFC700';
+      break;
+    case 3:
+      intensityColor = '#F24E1E';
+      break;
+    case 4:
+      intensityColor = '#FF0000';
+      break;
+  }
+  return intensityColor;
 }
 
 function setEventCategory(i) {
-	let eventCategory = "";
-	switch (model.data.events[i].eventCategory) {
-		case "Løping":
-			eventCategory = løpingIcon;
-			break;
-		case "Styrke":
-			eventCategory = styrkeIcon;
-			break;
-		case "Svømming":
-			eventCategory = svømmingIcon;
-			break;
-		case "Sykling":
-			eventCategory = syklingIcon;
-			break;
-	}
-	return eventCategory;
+  let eventCategory = '';
+  switch (model.data.events[i].eventCategory) {
+    case 'Løping':
+      eventCategory = løpingIcon;
+      break;
+    case 'Styrke':
+      eventCategory = styrkeIcon;
+      break;
+    case 'Svømming':
+      eventCategory = svømmingIcon;
+      break;
+    case 'Sykling':
+      eventCategory = syklingIcon;
+      break;
+  }
+  return eventCategory;
 }
 
 function showParticipants(i) {
-	//Draws the event participants
-	let participants = "";
-	model.data.events[i].eventParticipants.forEach(
-		(participant) =>
-			(participants += `<img src="${participant.userImg}" class="eventParticipants"></img>`)
-	);
-	return participants;
+  //Draws the event participants
+  let participants = '';
+  model.data.eventParticipants.forEach(
+    (participant) =>
+      (participants += `<img src="${participant.userImg}" class="eventParticipants"></img>`)
+  );
+  return participants;
 }
 
 //For you view
