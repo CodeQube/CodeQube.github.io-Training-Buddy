@@ -1,9 +1,9 @@
 // Main Home View For the app
 function homeView() {
-  let header = drawHeaderHome();
-  let content = drawCards();
-  let footer = drawFooter();
-  document.getElementById('app').innerHTML = `
+	let header = drawHeaderHome();
+	let content = drawCards();
+	let footer = drawFooter();
+	document.getElementById("app").innerHTML = `
   ${drawHeaderHome()}
   <div class="contentContainer">${drawCards()}</div>
   ${drawFooter()}
@@ -11,21 +11,21 @@ function homeView() {
 }
 
 function drawCards() {
-  let cardsHtml = '';
-  for (let i = 0; i < model.data.events.length; i++) {
-    const isCardOpen = model.app.state.selectedCard === i;
-    cardsHtml += `<div>${
-      isCardOpen
-        ? // Open Card
-          `
+	let cardsHtml = "";
+	for (let i = 0; i < model.data.events.length; i++) {
+		const isCardOpen = model.app.state.selectedCard === i;
+		cardsHtml += `<div>${
+			isCardOpen
+				? // Open Card
+				  `
         <div class="eventCardOpen"  id="#${i}">
           <div class="intensityBar" style="background-color: ${setIntensityBar(
-            i
-          )};" ></div>
+						i
+					)};" ></div>
               <div class="eventImgContainer">
                 <img class="eventImgBg" src="${
-                  model.data.events[i].eventImgOpen
-                }" alt="Event image">
+									model.data.events[i].eventImgOpen
+								}" alt="Event image">
             </div>
             <div class="participantContainer">
               <div>Påmeldte</div>
@@ -36,26 +36,29 @@ function drawCards() {
               ${setIntensityIcon(i)}
                 <div>intensitet</div>
               </div>
-              <button class="eventSignUpBtn">Meld på</button>
+              <button class="eventSignUpBtn" onclick="attendEvent(${
+								model.data.events[i].eventId
+							}
+							)">Meld på</button>
             </div>
             <div class="eventInfoContainer">
               <div class="eventTitle">${model.data.events[i].eventName}</div>
               <div class="eventLocation">${
-                model.data.events[i].eventLocation
-              }</div>
+								model.data.events[i].eventLocation
+							}</div>
               <div class="eventCategoryContainer">
                 <div class="eventSubCategory">${
-                  model.data.events[i].eventSubCategory
-                }</div>
+									model.data.events[i].eventSubCategory
+								}</div>
                 ${setEventCategory(i)}
               </div>
               <div class="eventDescContainer">
                 <div class="eventDescTitle">${
-                  model.data.events[i].eventDescTitle
-                }</div>
+									model.data.events[i].eventDescTitle
+								}</div>
                 <div class="eventDescription">${
-                  model.data.events[i].eventDescription
-                }</div>
+									model.data.events[i].eventDescription
+								}</div>
               </div>
 
               <div class="eventDateTimeOpen">
@@ -67,16 +70,16 @@ function drawCards() {
 
           </div>
         `
-        : //Closed Card
-          `
+				: //Closed Card
+				  `
         <div class="eventCard"  id="#${i}">
           <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
-            i
-          )};" ></div>
+						i
+					)};" ></div>
             <div class="eventImgContainer">
               <img class="eventImgBg" src="${
-                model.data.events[i].eventImg
-              }" alt="Event image">
+								model.data.events[i].eventImg
+							}" alt="Event image">
           </div>
           <div class="eventInfoContainer">
             <div class="eventTitle">${model.data.events[i].eventName}</div>
@@ -85,13 +88,13 @@ function drawCards() {
               <div class="eventDate">${model.data.events[i].eventDate}</div>
             </div>
             <div class="eventLocation">${
-              model.data.events[i].eventLocation
-            }</div>
+							model.data.events[i].eventLocation
+						}</div>
           </div>
           <div class="eventCategoryContainerClosed">
               <div class="eventSubCategory">${
-                model.data.events[i].eventSubCategory
-              }</div>
+								model.data.events[i].eventSubCategory
+							}</div>
               ${setEventCategory(i)}
             </div>
             <div class="intensityContainerClosed">
@@ -101,23 +104,23 @@ function drawCards() {
           <div href="#${i}" onclick="openCard(${i})" class="showMore">Vis mer</br> ﹀</div>
         </div>
       `
-    }</div>`;
-  }
-  return cardsHtml;
+		}</div>`;
+	}
+	return cardsHtml;
 }
 
 function showParticipants(i) {
-  //Draws the event participants
-  let participants = '';
-  let events = model.data.eventParticipants.filter((ep) => ep.eventId === i);
+	//Draws the event participants
+	let participants = "";
+	let events = model.data.eventParticipants.filter((ep) => ep.eventId === i);
 
-  // console.log(events);
-  events.forEach(
-    (participant) =>
-      (participants += `<img src="${participant.userImg}" class="eventParticipants"></img>`)
-  );
+	// console.log(events);
+	events.forEach(
+		(participant) =>
+			(participants += `<img src="${participant.userImg}" class="eventParticipants"></img>`)
+	);
 
-  return participants;
+	return participants;
 }
 
 //For you view
