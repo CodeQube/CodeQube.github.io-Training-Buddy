@@ -1,13 +1,13 @@
 function handleCreateNewEvent() {
   let event = model.inputs;
   model.data.events.push({
-    eventId: 0,
+    eventId: model.data.events.length + 1,
     eventOwnerId: model.app.state.activeUser,
     eventName: event.newEventName,
     eventLocation: event.newEventLocation,
     eventIcon: `${event.newEventCategory}Icon`, // This gets its value from the category array by a controller function this.categories[0].icon
-    eventImg: model.inputs.newEventBgImg, //  This gets its value from the category array by a controller function this.categories[0].bgImg
-    eventImgOpen: model.inputs.newEventBgImg, //  This gets its value from the category array by a controller function this.categories[0].bgImg
+    eventImg: model.inputs.newEventImg, //  This gets its value from the category array by a controller function this.categories[0].bgImg
+    eventImgOpen: model.inputs.newEventImgOpen, //  This gets its value from the category array by a controller function this.categories[0].bgImg
     eventCategory: model.inputs.newEventCategory,
     eventSubCategory: event.newEventSubCategory,
     eventIntensity: event.newEventIntensity,
@@ -15,7 +15,6 @@ function handleCreateNewEvent() {
     eventTime: model.inputs.newEventTime,
     eventDescTitle: event.newEventDescTitle,
     eventDescription: event.newEventDescription,
-    eventParticipants: [],
   });
   model.app.activePage = 'home';
   mainView();
@@ -27,8 +26,8 @@ function checkNewEventCategory() {
     case 'Friløp':
     case 'Halvmaraton':
       model.inputs.newEventCategory = 'Løping';
-      model.inputs.newEventBgImg = `./images/bg/løping.jpg`;
-      model.inputs.newEventBgImg = `./images/bg/løpingOpen.jpg`;
+      model.inputs.newEventImg = `./images/bg/løping.jpg`;
+      model.inputs.newEventImgOpen = `./images/bg/løpingOpen.jpg`;
       break;
 
     case 'Rygg':
@@ -36,8 +35,8 @@ function checkNewEventCategory() {
     case 'Armer':
     case 'Bryst':
       model.inputs.newEventCategory = 'Styrke';
-      model.inputs.newEventBgImg = `./images/bg/styrke.jpg`;
-      model.inputs.newEventBgImg = `./images/bg/styrkeOpen.jpg`;
+      model.inputs.newEventImg = `./images/bg/styrke.jpg`;
+      model.inputs.newEventImgOpen = `./images/bg/styrkeOpen.jpg`;
       break;
 
     case 'Spinning':
@@ -45,15 +44,15 @@ function checkNewEventCategory() {
     case 'Terreng':
     case 'Vei':
       model.inputs.newEventCategory = 'Sykling';
-      model.inputs.newEventBgImg = `./images/bg/sykling.jpg`;
-      model.inputs.newEventBgImg = `./images/bg/syklingOpen.jpg`;
+      model.inputs.newEventImg = `./images/bg/sykling.jpg`;
+      model.inputs.newEventImgOpen = `./images/bg/syklingOpen.jpg`;
       break;
 
     case 'Butterfly':
     case 'Synkronsvømming':
       model.inputs.newEventCategory = 'Svømming';
-      model.inputs.newEventBgImg = `./images/bg/svømming.jpg`;
-      model.inputs.newEventBgImg = `./images/bg/svømmingOpen.jpg`;
+      model.inputs.newEventImg = `./images/bg/svømming.jpg`;
+      model.inputs.newEventImgOpen = `./images/bg/svømmingOpen.jpg`;
       break;
   }
 }

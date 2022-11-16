@@ -54,10 +54,11 @@ let model = {
     newEventLocation: '',
     newEventCategory: '',
     newEventSubCategory: '',
-    newEventIntensity: '', //value between 1-4
+    newEventIntensity: 2, //value between 1-4
     newEventMaxAttendees: 4, // value between 1-4. Creator counts as 1 of the attendees but does not have to be included in the maxAttendees
     newEventCreateBtn: '',
-    newEventBgImg: '',
+    newEventImg: '',
+    newEventImgOpen: '',
     newEventTimeDate: '',
     newEventTime: '',
     newEventDate: '',
@@ -266,7 +267,7 @@ let model = {
     //Participants
     eventParticipants: [
       {
-        eventId: 1,
+        eventId: 3,
         userName: 'Løftekongen86',
         userImg: './images/profiles/1.jpg',
       },
@@ -309,7 +310,7 @@ let model = {
       {
         eventId: 1,
         eventOwnerId: 'britt.elin69',
-        eventName: 'Løpetur i skogen',
+        eventName: 'Løpetur i skauen',
         eventLocation: 'Nøtterøy',
         eventIcon: '', // This gets its value from the category array by a controller function this.categories[0].icon
         eventImg: './images/bg/løping.jpg', //  This gets its value from the category array by a controller function this.categories[0].bgImg
@@ -343,7 +344,7 @@ let model = {
       {
         eventId: 3,
         eventOwnerId: 0,
-        eventName: 'Løpetur i skogen',
+        eventName: 'Biceps YO',
         eventLocation: 'Nøtterøy',
         eventIcon: '', // This gets its value from the category array by a controller function this.categories[0].icon
         eventImg: './images/bg/løping.jpg', //  This gets its value from the category array by a controller function this.categories[0].bgImg
@@ -376,7 +377,7 @@ let model = {
       },
       {
         eventId: 5,
-        eventOwnerId: 0,
+        eventOwnerId: 'Løftekongen86',
         eventName: 'Løpetur i skogen',
         eventLocation: 'Nøtterøy',
         eventIcon: '', // This gets its value from the category array by a controller function this.categories[0].icon

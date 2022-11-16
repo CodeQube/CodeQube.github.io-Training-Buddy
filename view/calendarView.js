@@ -47,19 +47,18 @@ function calendarUpcomingView() {
   let events = model.data.eventParticipants
     .filter((ep) => ep.userName === model.app.state.activeUser)
     .map((ep) => model.data.events.find((e) => e.eventId === ep.eventId));
-
   let cardsHtml = '';
   for (let i = 0; i < events.length; i++) {
     const event = events[i];
-    // console.log(getUpcomingEvents);
-    const isCardOpen = model.app.state.selectedCard === i;
+
+    const isCardOpen = model.app.state.selectedCard === event.eventId;
     cardsHtml += `<div>${
       isCardOpen
         ? // Open Card
           `
-        <div class="eventCardOpen" id="#${i}">
+        <div class="eventCardOpen" id="#${event.eventId}">
           <div class="intensityBar" style="background-color: ${setIntensityBar(
-            i
+            event.eventId
           )};" ></div>
               <div class="eventImgContainer">
                 <img class="eventImgBg" src="${
@@ -69,10 +68,10 @@ function calendarUpcomingView() {
             <div class="participantContainer">
               <div>Påmeldte</div>
               <div class="participantImgContainer">
-                ${showParticipants(i)}
+                ${showParticipants(event.eventId)}
               </div>
               <div class="intensityContainer">
-              ${setIntensityIcon(i)}
+              ${setIntensityIcon(event.eventId)}
                 <div>intensitet</div>
               </div>
               <button class="eventSignUpBtn">Meld på</button>
@@ -82,7 +81,7 @@ function calendarUpcomingView() {
               <div class="eventLocation">${event.eventLocation}</div>
               <div class="eventCategoryContainer">
                 <div class="eventSubCategory">${event.eventSubCategory}</div>
-                ${setEventCategory(i)}
+                ${setEventCategory(event.eventId)}
               </div>
               <div class="eventDescContainer">
                 <div class="eventDescTitle">${event.eventDescTitle}</div>
@@ -94,15 +93,17 @@ function calendarUpcomingView() {
                 <div class="eventDate">${event.eventDate}</div>
               </div>
             </div>
-            <div onclick="openCard(${i})" class="showLess">Vis mindre </br> ︿</div>
+            <div onclick="openCard(${
+              event.eventId
+            })" class="showLess">Vis mindre </br> ︿</div>
 
           </div>
         `
         : //Closed Card
           `
-        <div class="eventCard"  id="#${i}">
+        <div class="eventCard"  id="#${event.eventId}">
           <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
-            i
+            event.eventId
           )};" ></div>
             <div class="eventImgContainer">
               <img class="eventImgBg" src="${event.eventImg}" alt="Event image">
@@ -117,13 +118,15 @@ function calendarUpcomingView() {
           </div>
           <div class="eventCategoryContainerClosed">
               <div class="eventSubCategory">${event.eventSubCategory}</div>
-              ${setEventCategory(i)}
+              ${setEventCategory(event.eventId)}
             </div>
             <div class="intensityContainerClosed">
-              ${setIntensityIcon(i)}
+              ${setIntensityIcon(event.eventId)}
               <div>intensitet</div>
             </div>
-          <div href="#${i}" onclick="openCard(${i})" class="showMore">Vis mer</br> ﹀</div>
+          <div href="#${event.eventId}" onclick="openCard(${
+            event.eventId
+          })" class="showMore">Vis mer</br> ﹀</div>
         </div>
       `
     }</div>`;

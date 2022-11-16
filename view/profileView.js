@@ -150,97 +150,105 @@ function handleReviewStars(count) {
 function drawCreatedEvents() {
   //filter
   let filteredEvents = model.data.events.filter(
-    (event) => event.eventOwnerId === model.app.state.selectedUser
+    (e) => e.eventOwnerId === model.app.state.selectedUser
   );
 
+  // let filteredEvents = model.data.events.find(
+  //   (event) => event.eventOwnerId === model.app.state.selectedUser
+  // );
+  // console.log(filteredEvents[0].eventId);
   let eventHTML = '';
   for (let i = 0; i < filteredEvents.length; i++) {
     const isCardOpen = model.app.state.selectedCard === i;
+    console.log(filteredEvents[i]);
+    console.log(filteredEvents[i].eventId);
     eventHTML += `<div>${
       isCardOpen
         ? // Open Card
           `
-        <div class="eventCardOpen"  id="#${i}">
+        <div class="eventCardOpen"  id="#${filteredEvents[i].eventId}">
           <div class="intensityBar" style="background-color: ${setIntensityBar(
-            i
+            1
           )};" ></div>
               <div class="eventImgContainer">
                 <img class="eventImgBg" src="${
-                  model.data.events[i].eventImgOpen
+                  filteredEvents[i].eventImgOpen
                 }" alt="Event image">
             </div>
             <div class="participantContainer">
               <div>Påmeldte</div>
               <div class="participantImgContainer">
-                ${showParticipants(i)}
+                ${showParticipants(filteredEvents[i].eventId)}
               </div>
               <div class="intensityContainer">
-              ${setIntensityIcon(i)}
+              ${setIntensityIcon(1)}
                 <div>intensitet</div>
               </div>
               <button class="eventSignUpBtn">Meld på</button>
             </div>
             <div class="eventInfoContainer">
-              <div class="eventTitle">${model.data.events[i].eventName}</div>
+              <div class="eventTitle">${filteredEvents[i].eventName}</div>
               <div class="eventLocation">${
-                model.data.events[i].eventLocation
+                filteredEvents[i].eventLocation
               }</div>
               <div class="eventCategoryContainer">
                 <div class="eventSubCategory">${
-                  model.data.events[i].eventSubCategory
+                  filteredEvents[i].eventSubCategory
                 }</div>
-                ${setEventCategory(i)}
+                ${setEventCategory(filteredEvents[i].eventId)}
               </div>
               <div class="eventDescContainer">
                 <div class="eventDescTitle">${
-                  model.data.events[i].eventDescTitle
+                  filteredEvents[i].eventDescTitle
                 }</div>
                 <div class="eventDescription">${
-                  model.data.events[i].eventDescription
+                  filteredEvents[i].eventDescription
                 }</div>
               </div>
 
               <div class="eventDateTimeOpen">
-                <div class="eventTime">${model.data.events[i].eventTime}</div>
-                <div class="eventDate">${model.data.events[i].eventDate}</div>
+                <div class="eventTime">${filteredEvents[i].eventTime}</div>
+                <div class="eventDate">${filteredEvents[i].eventDate}</div>
               </div>
             </div>
-            <div onclick="openCard(${i})" class="showLess">Vis mindre </br> ︿</div>
+            <div onclick="openCard(${
+              filteredEvents[i].eventId
+            })" class="showLess">Vis mindre </br> ︿</div>
 
           </div>
         `
         : //Closed Card
           `
-        <div class="eventCard"  id="#${i}">
+        <div class="eventCard"  id="#${filteredEvents[i].eventId}">
           <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
-            i
+            1
           )};" ></div>
             <div class="eventImgContainer">
               <img class="eventImgBg" src="${
-                model.data.events[i].eventImg
+                filteredEvents[i].eventImg
               }" alt="Event image">
           </div>
           <div class="eventInfoContainer">
-            <div class="eventTitle">${model.data.events[i].eventName}</div>
+            <div class="eventTitle">${filteredEvents[i].eventName}</div>
             <div class="eventDateTime">
-              <div class="eventTime">${model.data.events[i].eventTime}</div>
-              <div class="eventDate">${model.data.events[i].eventDate}</div>
+              <div class="eventTime">${filteredEvents[i].eventTime}</div>
+              <div class="eventDate">${filteredEvents[i].eventDate}</div>
             </div>
-            <div class="eventLocation">${
-              model.data.events[i].eventLocation
-            }</div>
+            <div class="eventLocation">${filteredEvents[i].eventLocation}</div>
           </div>
           <div class="eventCategoryContainerClosed">
               <div class="eventSubCategory">${
-                model.data.events[i].eventSubCategory
+                filteredEvents[i].eventSubCategory
               }</div>
-              ${setEventCategory(i)}
+              ${setEventCategory(filteredEvents[i].eventId)}
             </div>
             <div class="intensityContainerClosed">
-              ${setIntensityIcon(i)}
+              ${setIntensityIcon(filteredEvents[i].eventId)}
               <div>intensitet</div>
             </div>
-          <div href="#${i}" onclick="openCard(${i})" class="showMore">Vis mer</br> ﹀</div>
+          <div href="#${filteredEvents[i].eventId}" onclick="openCard(${
+            filteredEvents[i].eventId
+          })" class="showMore">Vis mer</br> ﹀</div>
         </div>
       `
     }</div>`;

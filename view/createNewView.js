@@ -1,24 +1,24 @@
 //View for creating a new event
 function createNewView() {
-	document.getElementById("app").innerHTML = `
+  document.getElementById('app').innerHTML = `
       <div class="createNewContainer">${drawNewEvent()}</div>
       ${drawFooter()}
       `;
 }
 
 function drawNewEvent() {
-	let event = model.inputs;
-	let newEventHTML = /*HTML*/ `
+  let event = model.inputs;
+  let newEventHTML = /*HTML*/ `
   <input class="eventTitleInput" type="text" value="${
-		model.inputs.newEventName
-	}" placeholder="Skriv inn en kort tittel" oninput="
+    model.inputs.newEventName
+  }" placeholder="Skriv inn en kort tittel" oninput="
 		model.inputs.newEventName
 	 = this.value">
   <div class="newEventLocationInput">
   <span>Sted</span>
   <input value="${
-		model.inputs.newEventLocation
-	}" class="newEventLocationInputField" onclick="navigator.geolocation.getCurrentPosition(successCallback, errorCallback)" type="text" placeholder="Hvor skal økten være?">
+    model.inputs.newEventLocation
+  }" class="newEventLocationInputField" onclick="navigator.geolocation.getCurrentPosition(successCallback, errorCallback)" type="text" placeholder="Hvor skal økten være?">
   </div>
   
   <div class="eventCategoryInputContainer">
@@ -31,8 +31,8 @@ function drawNewEvent() {
   </div>
 
   <input class="eventDateInput" value="${
-		model.inputs.newEventTimeDate
-	}" type="datetime-local" onchange="model.inputs.newEventTimeDate = this.value; formatDateTime(this.value)">
+    model.inputs.newEventTimeDate
+  }" type="datetime-local" onchange="model.inputs.newEventTimeDate = this.value; formatDateTime(this.value)">
 
   <div class="newEventIntensityContainer">
     <button onclick="handleNewEventIntensity('minus')">-</button>
@@ -43,14 +43,14 @@ function drawNewEvent() {
 
   <div class="newEventDescriptionContainer">
     <input id="newEventDescTitle" value="${
-			model.inputs.newEventDescTitle
-		}" type="text" placeholder="Legg til en beskrivende emnetittel" oninput="
+      model.inputs.newEventDescTitle
+    }" type="text" placeholder="Legg til en beskrivende emnetittel" oninput="
 		model.inputs.newEventDescTitle
 	 = this.value">
     <input
     type="text" id="newEventLongDesc" name="eventDescription" value="${
-			model.inputs.newEventDescription
-		}" placeholder="Beskriv økten din her, gjerne si litt om hvor dere skal møtes og hva økten går ut på..." style="height:200px" oninput="
+      model.inputs.newEventDescription
+    }" placeholder="Beskriv økten din her, gjerne si litt om hvor dere skal møtes og hva økten går ut på..." style="height:200px" oninput="
 		model.inputs.newEventDescription
 	 = this.value"></input>
   </div>
@@ -63,34 +63,34 @@ function drawNewEvent() {
   </div>
   <button class="makeNewEventBtn" onclick="handleCreateNewEvent()">Opprett</button>
   `;
-	return newEventHTML;
+  return newEventHTML;
 }
 
 function drawCategoriesList() {
-	let html = "";
-	let selected = "";
-	for (let i = 0; i < model.data.categories.length; i++) {
-		for (let j = 0; j < model.data.categories[i].subCategories.length; j++) {
-			html += `<Option ${
-				model.inputs.newEventSubCategory ===
-				model.data.categories[i].subCategories[j]
-					? "selected"
-					: ""
-			} onclick="selected=this.value" value="${
-				model.data.categories[i].subCategories[j]
-			}">${model.data.categories[i].subCategories[j]}</Option>`;
-		}
-	}
-	return html;
+  let html = '';
+  let selected = '';
+  for (let i = 0; i < model.data.categories.length; i++) {
+    for (let j = 0; j < model.data.categories[i].subCategories.length; j++) {
+      html += `<Option ${
+        model.inputs.newEventSubCategory ===
+        model.data.categories[i].subCategories[j]
+          ? 'selected'
+          : ''
+      } onclick="selected=this.value" value="${
+        model.data.categories[i].subCategories[j]
+      }">${model.data.categories[i].subCategories[j]}</Option>`;
+    }
+  }
+  return html;
 }
 
 const successCallback = (position) => {
-	// console.log(position);
-	let lat = position.coords.latitude;
-	let long = position.coords.longitude;
-	setLocation(long, lat);
+  // console.log(position);
+  let lat = position.coords.latitude;
+  let long = position.coords.longitude;
+  setLocation(long, lat);
 };
 
 const errorCallback = (error) => {
-	console.log(error);
+  console.log(error);
 };
