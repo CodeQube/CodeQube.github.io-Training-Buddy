@@ -68,7 +68,7 @@ function handleNewEventIntensity(action) {
       model.inputs.newEventIntensity++;
     }
   } else {
-    return;
+    cancel;
   }
   mainView();
 }
@@ -84,7 +84,7 @@ function handleNewEventAttendees(action) {
       model.inputs.newEventMaxAttendees++;
     }
   } else {
-    return;
+    cancel;
   }
   mainView();
 }

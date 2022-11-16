@@ -119,6 +119,7 @@ function getSubmitter(i) {
 // }
 
 // function drawCards({
+//   eventID
 //   imgOpen,
 //   eventName,
 //   eventLocation,
@@ -135,7 +136,7 @@ function getSubmitter(i) {
 // 			isCardOpen
 // 				? // Open Card
 // 				  `
-//         <div class="eventCardOpen"  id="#${i}">
+//         <div class="eventCardOpen"  id="#${eventId}">
 //           <div class="intensityBar" style="background-color: ${setIntensityBar(
 // 						i
 // 					)};" ></div>
