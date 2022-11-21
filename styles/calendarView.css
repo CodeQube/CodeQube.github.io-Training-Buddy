@@ -18,6 +18,14 @@
   border: 1px solid #6b6b6b;
 }
 
+.calendarContainerReview {
+  height: 785px;
+  width: 400px;
+  background-color: #1e1e1e;
+  overflow: scroll;
+  border: 1px solid #6b6b6b;
+}
+
 .calendarContainer::-webkit-scrollbar {
   display: none;
 }
@@ -26,4 +34,62 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.intensityContainerFixed {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 53px;
+  margin-top: 165px;
+  position: absolute;
+}
+
+.participantImgContainerFixed {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: -180px;
+  margin-top: 60px;
+}
+
+.eventParticipantsFixed {
+  width: 40px;
+  height: 40px;
+  border: 2px solid red;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.giveReviewBtn {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #676464;
+  border-radius: 3px;
+  width: 150px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  margin-left: -160px;
+}
+
+.giveReviewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  border-bottom: 1px solid #676464;
+}
+
+.giveReviewTitle {
+  font-size: 30px;
+  color: #fff;
+}
+
+.giveReviewLocation {
+  font-size: 15px;
+  color: #fff;
+  opacity: 80%;
+  margin-bottom: 5px;
 }

@@ -168,7 +168,7 @@ function drawCreatedEvents() {
           `
         <div class="eventCardOpen"  id="#${filteredEvents[i].eventId}">
           <div class="intensityBar" style="background-color: ${setIntensityBar(
-            1
+            filteredEvents[i].eventId
           )};" ></div>
               <div class="eventImgContainer">
                 <img class="eventImgBg" src="${
@@ -181,7 +181,7 @@ function drawCreatedEvents() {
                 ${showParticipants(filteredEvents[i].eventId)}
               </div>
               <div class="intensityContainer">
-              ${setIntensityIcon(1)}
+              ${setIntensityIcon(filteredEvents[i].eventId)}
                 <div>intensitet</div>
               </div>
               <button class="eventSignUpBtn">Meld på</button>
@@ -211,9 +211,7 @@ function drawCreatedEvents() {
                 <div class="eventDate">${filteredEvents[i].eventDate}</div>
               </div>
             </div>
-            <div onclick="openCard(${
-              filteredEvents[i].eventId
-            })" class="showLess">Vis mindre </br> ︿</div>
+            <div onclick="openCard(${i})" class="showLess">Vis mindre </br> ︿</div>
 
           </div>
         `
@@ -221,7 +219,7 @@ function drawCreatedEvents() {
           `
         <div class="eventCard"  id="#${filteredEvents[i].eventId}">
           <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
-            1
+            filteredEvents[i].eventId
           )};" ></div>
             <div class="eventImgContainer">
               <img class="eventImgBg" src="${
@@ -246,9 +244,9 @@ function drawCreatedEvents() {
               ${setIntensityIcon(filteredEvents[i].eventId)}
               <div>intensitet</div>
             </div>
-          <div href="#${filteredEvents[i].eventId}" onclick="openCard(${
+          <div href="#${
             filteredEvents[i].eventId
-          })" class="showMore">Vis mer</br> ﹀</div>
+          }" onclick="openCard(${i})" class="showMore">Vis mer</br> ﹀</div>
         </div>
       `
     }</div>`;

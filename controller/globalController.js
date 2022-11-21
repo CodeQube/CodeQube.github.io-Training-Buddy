@@ -34,24 +34,39 @@ function setActivePage(page) {
 }
 
 function attendEvent(eventId) {
-  let people = [];
-  const events = model.data.eventParticipants.filter(
-    (event) => event.eventId === eventId
+  const userName = model.app.state.activeUser;
+  const allEventParticipants = model.data.eventParticipants;
+  const eventParticipants = allEventParticipants.filter(
+    (e) => e.eventId === eventId
   );
-  events.forEach((person) => people.push(person.userName));
-  if (
-    people.includes(model.app.state.activeUser) ||
-    events.length >= model.data.events[eventId].EventMaxAttendees
-  ) {
-    return;
-  }
-  console.log(people);
-  // events.length < eventPartcipantLimit
-  model.data.eventParticipants.push({
-    eventId: eventId,
-    userName: model.app.state.activeUser,
-  });
+  const people = eventParticipants.map((ep) => ep.userName);
+  const isAlreadyAdded = people.includes(userName);
+  const event = model.data.events.find((e) => e.eventId == eventId);
+  const eventIsFull = eventParticipants.length >= event.EventMaxAttendees;
+  if (isAlreadyAdded || eventIsFull) return;
+  allEventParticipants.push({ eventId, userName, isConfirmed: false });
   mainView();
 }
+
+// function attendEvent(eventId) {
+//   let people = [];
+//   const events = model.data.eventParticipants.filter(
+//     (event) => event.eventId === eventId
+//   );
+//   events.forEach((person) => people.push(person.userName));
+//   if (
+//     people.includes(model.app.state.activeUser) ||
+//     events.length >= model.data.events[eventId].EventMaxAttendees
+//   ) {
+//     return;
+//   }
+//   console.log(people);
+//   // events.length < eventPartcipantLimit
+//   model.data.eventParticipants.push({
+//     eventId: eventId,
+//     userName: model.app.state.activeUser,
+//   });
+//   mainView();
+// }
 // events.userName === model.app.state.activeUser
 // ||

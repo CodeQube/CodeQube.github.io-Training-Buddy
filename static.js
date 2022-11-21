@@ -1,5 +1,5 @@
 function drawHeaderHome() {
-	let headerHTML = `
+  let headerHTML = `
   <div class="headerHomeContainer">
     <div class="filterContainer">
       <div class="filterIcon">${filterIcon}
@@ -15,11 +15,11 @@ function drawHeaderHome() {
     </div>
   </div>
   `;
-	return headerHTML;
+  return headerHTML;
 }
 
 function drawFooter() {
-	let footerHTML = `
+  let footerHTML = `
   <div class="footerContainer">
     <div onclick="setActivePage('home')" style="cursor: pointer;">${homeButton}</div>
     <div onclick="setActivePage('leaderboard')" style="cursor: pointer;">${leaderboardButton}</div>
@@ -28,11 +28,11 @@ function drawFooter() {
     <div onclick="userClick('${model.app.state.activeUser}')" style="cursor: pointer;">${profileButton}</div>
   </div>
   `;
-	return footerHTML;
+  return footerHTML;
 }
 
 function drawConfirmLocation(str) {
-	let confirmLocationHTML = `
+  let confirmLocationHTML = `
   <div class="confirmLocationContainer">
   <span>Du befinner deg i: ${model.inputs.newEventLocation} </br>
   Bekreft lokasjon
@@ -41,5 +41,5 @@ function drawConfirmLocation(str) {
   <button onclick="handleLocation('nei')">Nei</button>
   </div>
   `;
-	return confirmLocationHTML;
+  return confirmLocationHTML;
 }
