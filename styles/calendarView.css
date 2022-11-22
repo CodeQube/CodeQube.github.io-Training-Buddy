@@ -26,6 +26,18 @@
   border: 1px solid #6b6b6b;
 }
 
+.calendarContainerReview {
+  height: 785px;
+  width: 400px;
+  background-color: #1e1e1e;
+  overflow: scroll;
+  border: 1px solid #6b6b6b;
+}
+
+.calendarContainerReview::-webkit-scrollbar {
+  display: none;
+}
+
 .calendarContainer::-webkit-scrollbar {
   display: none;
 }
@@ -74,7 +86,11 @@
   margin-left: -160px;
 }
 
-.giveReviewContainer {
+.giveReviewBtn:hover {
+  cursor: pointer;
+}
+
+.giveReviewHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,4 +108,107 @@
   color: #fff;
   opacity: 80%;
   margin-bottom: 5px;
+}
+
+.giveReviewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 590px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.giveReviewEventContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.giveReviewEventTitle {
+  color: #fff;
+  font-size: 15px;
+}
+
+.giveReviewEventStars {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.giveReviewEventStars:hover {
+  cursor: pointer;
+  color: #ffc700;
+}
+
+.giveReviewInput {
+  margin-top: 8px;
+  margin-left: 55px;
+  width: 320px;
+  height: 35px;
+  border: 2px solid #6b6b6b;
+  background-color: #1e1e1e;
+  padding-left: 30px;
+  color: #fff;
+}
+
+.giveReviewInput:focus {
+  outline: none;
+  border: 2px solid #6b6b6b;
+}
+
+.giveReviewPic {
+  position: absolute;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  margin-left: 28px;
+  margin-top: -10px;
+}
+
+.giveReviewUsername {
+  position: absolute;
+  margin-left: 90px;
+  margin-top: -10px;
+  font-size: 11px;
+  opacity: 80%;
+}
+
+.giveReviewRating {
+  float: right;
+  margin-right: 23px;
+  margin-top: -60px;
+}
+
+.giveReviewRating:hover {
+  cursor: pointer;
+}
+
+.giveReviewBtnConfirm {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #676464;
+  border-radius: 3px;
+  width: 150px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 125px;
+  margin-top: 10px;
+}
+.giveReviewBtnConfirm:hover {
+  cursor: pointer;
+}
+
+.giveReviewParticipant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  overflow: scroll;
+}
+
+.giveReviewParticipant::-webkit-scrollbar {
+  display: none;
 }

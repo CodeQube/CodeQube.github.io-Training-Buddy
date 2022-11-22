@@ -336,23 +336,81 @@ function calendarActiveView() {
 
 function giveReviewView() {
   //View for å gi en review
-  let reviewEvent = model.app.state.activeReviewEvent;
-  let event = model.data.eventParticipants
-    .filter(
-      (ep) =>
-        ep.userName === model.app.state.activeUser &&
-        ep.isConfirmed == true &&
-        ep.eventId == reviewEvent
-    )
-    .map((ep) => model.data.events.find((e) => e.eventId === ep.eventId));
+  let reviewEventId = model.app.state.activeReviewEvent;
+  let reviewEvent = model.data.events.find((e) => e.eventId === reviewEventId);
+  console.log(reviewEvent);
+  // let event = model.data.eventParticipants
+  //   .filter(
+  //     (ep) =>
+  //       ep.userName === model.app.state.activeUser &&
+  //       ep.isConfirmed == true &&
+  //   )
+  //   .map((ep) => model.data.events.find((e) => e.eventId === ep.eventId));
 
-  console.log(event);
   let reviewHTML = `
-    <div class="giveReviewContainer">
-      <div class="giveReviewTitle">Tittel</div>
-      <div class="giveReviewLocation">Lokasjon</div>
+    <div class="giveReviewHeader">
+      <div class="giveReviewTitle">${reviewEvent.eventName}</div>
+      <div class="giveReviewLocation">${reviewEvent.eventLocation}</div>
     </div>
+
+    <div class="giveReviewContainer">
+      <div class="giveReviewEventContainer">
+        <div style="margin: 20px 0">
+          <span class="giveReviewEventTitle">Hvor inspirert ble du av denne økten?</span>
+          <div class="giveReviewEventStars" onclick="model.inputs.review.eventReview1 = 3">${handleGiveReviewStars(
+            i,
+            5
+          )}</div>
+        </div>
+        <div style="margin-bottom: 20px">
+          <span class="giveReviewEventTitle">Hvor godt utbytte fikk du?</span>
+          <div class="giveReviewEventStars" onclick="model.inputs.review.eventReview2 = 3">${handleGiveReviewStars(
+            i,
+            5
+          )}</div>
+        </div>
+        <div style="margin-bottom: 20px; padding: 0 20px;">
+          <span class="giveReviewEventTitle">Vil du gi en tilbakemelding til de andre deltagerene?</span>
+        </div>
+      </div>
+
+      <div class="giveReviewParticipantsContainer">
+        ${getReviewParticipants(reviewEventId)}
+      </div>
+    </div>
+
+    <button class="giveReviewBtnConfirm">Bekreft</button>
   `;
 
   return reviewHTML;
+}
+
+function getReviewParticipants(eventId) {
+  let reviewEvent = model.data.events.find((e) => e.eventId === eventId);
+  let participants = model.data.eventParticipants
+    .filter((ep) => ep.eventId === eventId && ep.isConfirmed === true)
+    .map((ep) => model.data.users.find((u) => u.userName === ep.userName));
+
+  console.log(participants);
+  let html = '';
+  for (let i = 0; i < participants.length; i++) {
+    html += `
+      <div class="giveReviewParticipant">
+        <div class="reviewSmallContainer">
+          <img class="giveReviewPic" src="${participants[i].userProfileImg}">
+          <div class="giveReviewUsername">${
+            model.inputs.review.userReviews[i].userName
+          }</div>
+          <input type="text" class="giveReviewInput" oninput="model.inputs.review.userReviews[${i}].text=this.value" value="${
+      model.inputs.review.userReviews[i].text != ''
+        ? model.inputs.review.userReviews[i].text
+        : ''
+    }" placeholder="Skriv en tilbakemelding her...">
+          <div class="giveReviewRating">${handleGiveUserReviewStars(i, 5)}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  return html;
 }

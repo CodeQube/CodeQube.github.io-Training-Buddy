@@ -68,6 +68,7 @@ let model = {
       inspiredScore: 5,
       gainScore: 5,
     },
+    
     giveAttendantReview: {
       reviewScore: 0,
       reviewText: 'Skriv en setning her...',
@@ -326,19 +327,19 @@ let model = {
       },
       {
         eventId: 4,
-        isConfirmed: false,
+        isConfirmed: true,
         userName: 'jensintens',
         userImg: './images/profiles/3.jpg',
       },
       {
         eventId: 4,
-        isConfirmed: false,
+        isConfirmed: true,
         userName: 'hugobigg',
         userImg: './images/profiles/4.jpg',
       },
       {
         eventId: 4,
-        isConfirmed: false,
+        isConfirmed: true,
         userName: 'glenntore420',
         userImg: './images/profiles/1.jpg',
       },
