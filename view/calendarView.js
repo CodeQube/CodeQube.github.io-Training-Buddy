@@ -358,14 +358,12 @@ function giveReviewView() {
         <div style="margin: 20px 0">
           <span class="giveReviewEventTitle">Hvor inspirert ble du av denne økten?</span>
           <div class="giveReviewEventStars" onclick="model.inputs.review.eventReview1 = 3">${handleGiveReviewStars(
-            i,
             5
           )}</div>
         </div>
         <div style="margin-bottom: 20px">
           <span class="giveReviewEventTitle">Hvor godt utbytte fikk du?</span>
           <div class="giveReviewEventStars" onclick="model.inputs.review.eventReview2 = 3">${handleGiveReviewStars(
-            i,
             5
           )}</div>
         </div>

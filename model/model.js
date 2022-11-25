@@ -64,15 +64,15 @@ let model = {
     newEventTime: '',
     newEventDate: '',
     //reviews
-    giveEventReview: {
-      inspiredScore: 5,
-      gainScore: 5,
-    },
-    
-    giveAttendantReview: {
-      reviewScore: 0,
-      reviewText: 'Skriv en setning her...',
-    },
+    // giveEventReview: {
+    //   inspiredScore: 5,
+    //   gainScore: 5,
+    // },
+
+    // giveAttendantReview: {
+    //   reviewScore: 0,
+    //   reviewText: 'Skriv en setning her...',
+    // },
   },
 
   //data

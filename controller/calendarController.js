@@ -45,10 +45,8 @@ function confirmParticipant(index) {
   mainView();
 }
 
-function handleGiveReviewStars(id, count) {
-  return `<div onclick="handleClickedStar(${id})">${starsEmptyIcon.repeat(
-    count
-  )}</div>`;
+function handleGiveReviewStars(count) {
+  return starsEmptyIcon.repeat(count);
 }
 
 function handleGiveUserReviewStars(id, count) {
