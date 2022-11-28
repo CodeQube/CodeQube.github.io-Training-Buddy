@@ -1,10 +1,13 @@
 function drawHeaderHome() {
-  let headerHTML = `
+	let headerHTML = /*HTML*/ `
   <div class="headerHomeContainer">
     <div class="filterContainer">
       <div class="filterIcon">${filterIcon}
       </div>
-      <div class="searchIcon">${searchIcon}
+      <div class="searchIcon" >${searchIconfunc()}
+      <input style="${
+				model.app.state.searchBar === false ? "display:none" : ""
+			}"type="text" placeholder="Søk etter økt her">
       </div>
     </div>
     <div class="headerPages">
@@ -15,11 +18,20 @@ function drawHeaderHome() {
     </div>
   </div>
   `;
-  return headerHTML;
+	return headerHTML;
+}
+
+function searchIconfunc() {
+	return `<div onclick="makeSearchBar()">${searchIcon}</div>`;
+}
+
+function makeSearchBar() {
+	model.app.state.searchBar = !model.app.state.searchBar;
+	mainView();
 }
 
 function drawFooter() {
-  let footerHTML = `
+	let footerHTML = `
   <div class="footerContainer">
     <div onclick="setActivePage('home')" style="cursor: pointer;">${homeButton}</div>
     <div onclick="setActivePage('leaderboard')" style="cursor: pointer;">${leaderboardButton}</div>
@@ -28,11 +40,11 @@ function drawFooter() {
     <div onclick="userClick('${model.app.state.activeUser}')" style="cursor: pointer;">${profileButton}</div>
   </div>
   `;
-  return footerHTML;
+	return footerHTML;
 }
 
 function drawConfirmLocation(str) {
-  let confirmLocationHTML = `
+	let confirmLocationHTML = `
   <div class="confirmLocationContainer">
   <span>Du befinner deg i: ${model.inputs.newEventLocation} </br>
   Bekreft lokasjon
@@ -41,5 +53,5 @@ function drawConfirmLocation(str) {
   <button onclick="handleLocation('nei')">Nei</button>
   </div>
   `;
-  return confirmLocationHTML;
+	return confirmLocationHTML;
 }

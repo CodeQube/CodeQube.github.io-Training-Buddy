@@ -139,7 +139,7 @@
 
 .giveReviewEventStars:hover {
   cursor: pointer;
-  color: #ffc700;
+  fill: yellow;
 }
 
 .giveReviewInput {
