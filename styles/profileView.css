@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-.bioContainer {
-  background-color: #1e1e1e;
-  color: #ffffff;
-  height: 487px;
-}
-
 .profileHeader {
   background-color: #1e1e1e;
   color: #ffffff;
@@ -31,13 +25,12 @@
 }
 
 .dotContainer {
+  width: 350px;
   display: flex;
-  position: absolute;
-  margin-left: 170px;
-  margin-top: -20px;
-  text-align: center;
-  font-size: 75px;
-  padding: 0;
+  margin-left: 10px;
+  margin-top: 100px;
+  font-size: 14px;
+  justify-content: space-between;
 }
 
 .dotInactive {
@@ -58,7 +51,8 @@
 }
 
 .profileStatsContainer {
-  margin-top: 85px;
+  margin-top: -100px;
+
 }
 
 .profilePoeng {
@@ -87,26 +81,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.profileDesc {
-  font-size: 20px;
-  text-align: center;
-}
-
-.profileTag {
-  text-align: center;
-  border: 1px solid #6b6b6b;
-  width: 101px;
-  height: 20px;
-  background-color: #1e1e1e;
-}
-
-.profileTagContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
 }
 
 .reviewContainer {
@@ -166,4 +140,38 @@
 
 .createdEventsContainer::-webkit-scrollbar {
   display: none;
+}
+
+.bioContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  height: 487px;
+}
+
+.profileDesc {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.profileTag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  border: 2px solid #6b6b6b;
+  width: 105px;
+  height: 25px;
+  background-color: #1e1e1e;
+}
+
+.profileTagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  flex-direction: row;
 }

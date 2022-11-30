@@ -69,21 +69,26 @@ function calendarUpcomingView() {
           <div class="intensityBar" style="background-color: ${setIntensityBar(
 						event.eventId
 					)};" ></div>
-              <div class="eventImgContainer">
-                <img class="eventImgBg" src="${
-									event.eventImgOpen
-								}" alt="Event image">
+            <div class="eventImgContainer">
+              <div class="eventImgBgOpen" style="background-image:
+              linear-gradient(
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url(${model.data.events[i].eventImgOpen})"></div>
             </div>
             <div class="participantContainer">
               <div>Påmeldte</div>
               <div class="participantImgContainer">
-                ${showActiveParticipants(event.eventId)}
+                ${showParticipants(event.eventId)}
               </div>
               <div class="intensityContainer">
               ${setIntensityIcon(event.eventId)}
                 <div>intensitet</div>
               </div>
-              <button class="eventSignUpBtn">Meld på</button>
+              <button class="eventSignUpBtn" onclick="removeFromEvent(${
+								event.eventId
+							})">Meld av</button>
             </div>
             <div class="eventInfoContainer">
               <div class="eventTitle">${event.eventName}</div>
@@ -114,8 +119,13 @@ function calendarUpcomingView() {
           <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
 						event.eventId
 					)};" ></div>
-            <div class="eventImgContainer">
-              <img class="eventImgBg" src="${event.eventImg}" alt="Event image">
+          <div class="eventImgContainer">
+            <div class="eventImgBgClosed" style="background-image:
+            linear-gradient(
+              rgba(0, 0, 0, 0.7),
+              rgba(0, 0, 0, 0.7)
+            ),
+            url(${model.data.events[i].eventImg})"></div>
           </div>
           <div class="eventInfoContainer">
             <div class="eventTitle">${event.eventName}</div>
@@ -157,6 +167,9 @@ function calendarHistoryView() {
 				ep.userName === model.app.state.activeUser && ep.isConfirmed == true
 		)
 		.map((ep) => model.data.events.find((e) => e.eventId === ep.eventId));
+	let participant = model.data.eventParticipants.find(
+		(ep) => ep.userName === model.app.state.activeUser
+	);
 
 	let cardsHtml = "";
 	for (let i = 0; i < events.length; i++) {
@@ -171,19 +184,24 @@ function calendarHistoryView() {
             <div class="intensityBar" style="background-color: ${setIntensityBar(
 							event.eventId
 						)};" ></div>
-                <div class="eventImgContainer">
-                  <img class="eventImgBg" src="${
-										event.eventImgOpen
-									}" alt="Event image">
-              </div>
+            <div class="eventImgContainer">
+            <div class="eventImgBgOpen" style="background-image:
+            linear-gradient(
+              rgba(0, 0, 0, 0.7),
+              rgba(0, 0, 0, 0.7)
+            ),
+            url(${model.data.events[i].eventImgOpen})"></div>
+            </div>
               <div class="participantContainer">
-                <div class="intensityContainerFixed">
+                <div class="intensityContainerFixed" style="margin-left: 35px">
                 ${setIntensityIcon(event.eventId)}
                   <div>intensitet</div>
                 </div>
-                <button class="giveReviewBtn" onclick="setActiveReviewEvent(${
-									event.eventId
-								})">Gi en tilbakemelding</button>
+                ${
+									participant.hasReviewed === true
+										? `<div class="tilbakemelding">Du har allerede gitt tilbakemelding</div>`
+										: `<button class="giveReviewBtn" onclick="setActiveReviewEvent(${event.eventId})">Gi en tilbakemelding</button>`
+								}
               </div>
               <div class="eventInfoContainer">
                 <div class="eventTitle">${event.eventName}</div>
@@ -210,10 +228,13 @@ function calendarHistoryView() {
             <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
 							event.eventId
 						)};" ></div>
-              <div class="eventImgContainer">
-                <img class="eventImgBg" src="${
-									event.eventImg
-								}" alt="Event image">
+            <div class="eventImgContainer">
+              <div class="eventImgBgClosed" style="background-image:
+              linear-gradient(
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7)
+              ),
+              url(${model.data.events[i].eventImg})"></div>
             </div>
             <div class="eventInfoContainer">
               <div class="eventTitle">${event.eventName}</div>
@@ -246,7 +267,9 @@ function calendarActiveView() {
 	//filterere dine aktive økter som du har laget, kunne redigere og slette samt bekrefte påmeldte bruekere
 	//filter
 	let filteredEvents = model.data.events.filter(
-		(e) => e.eventOwnerId === model.app.state.selectedUser
+		(e) =>
+			e.eventOwnerId === model.app.state.selectedUser &&
+			e.eventIsClosed == false
 	);
 	let eventHTML = "";
 	for (let i = 0; i < filteredEvents.length; i++) {
@@ -261,19 +284,25 @@ function calendarActiveView() {
         <div class="intensityBar" style="background-color: ${setIntensityBar(
 					filteredEvents[i].eventId
 				)};" ></div>
-            <div class="eventImgContainer">
-              <img class="eventImgBg" src="${
-								filteredEvents[i].eventImgOpen
-							}" alt="Event image">
-          </div>
+        <div class="eventImgContainer">
+          <div class="eventImgBgOpen" style="background-image:
+          linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url(${filteredEvents[i].eventImgOpen})"></div>
+        </div>
+
           <div class="participantContainer">
             <div class="participantImgContainerFixed">
               ${showActiveParticipants(filteredEvents[i].eventId)}
             </div>
-            <div class="intensityContainerFixed">
+            <button onclick="handleConfirmEvent(${i})" class="eventConfirmBtn">Bekreft</button>
+            <div class="intensityContainer" style="margin-top: 60px">
             ${setIntensityIcon(filteredEvents[i].eventId)}
               <div>intensitet</div>
             </div>
+            
           </div>
           <div class="eventInfoContainer">
             <div class="eventTitle">${filteredEvents[i].eventName}</div>
@@ -301,10 +330,13 @@ function calendarActiveView() {
         <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
 					filteredEvents[i].eventId
 				)};" ></div>
-          <div class="eventImgContainer">
-            <img class="eventImgBg" src="${
-							filteredEvents[i].eventImg
-						}" alt="Event image">
+        <div class="eventImgContainer">
+          <div class="eventImgBgClosed" style="background-image:
+          linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url(${filteredEvents[i].eventImg})"></div>
         </div>
         <div class="eventInfoContainer">
           <div class="eventTitle">${filteredEvents[i].eventName}</div>
@@ -324,9 +356,9 @@ function calendarActiveView() {
             ${setIntensityIcon(filteredEvents[i].eventId)}
             <div>intensitet</div>
           </div>
-        <div href="#${filteredEvents[i].eventId}" onclick="openCard(${
-						filteredEvents[i].eventId
-				  })" class="showMore">Vis mer</br> ﹀</div>
+        <div href="#${
+					filteredEvents[i].eventId
+				}" onclick="openCard(${i})" class="showMore">Vis mer</br> ﹀</div>
       </div>
     `
 		}</div>`;
@@ -338,7 +370,7 @@ function giveReviewView() {
 	//View for å gi en review
 	let reviewEventId = model.app.state.activeReviewEvent;
 	let reviewEvent = model.data.events.find((e) => e.eventId === reviewEventId);
-	console.log(reviewEvent);
+	// console.log(reviewEvent);
 	// let event = model.data.eventParticipants
 	//   .filter(
 	//     (ep) =>
@@ -357,15 +389,11 @@ function giveReviewView() {
       <div class="giveReviewEventContainer">
         <div style="margin: 20px 0">
           <span class="giveReviewEventTitle">Hvor inspirert ble du av denne økten?</span>
-          <div class="giveReviewEventStars" onclick="model.inputs.review.eventReview1 = 3">${handleGiveReviewStars(
-						5
-					)}</div>
+          <div class="giveReviewEventStars" onclick="model.inputs.review.eventReview1 = 3">${handleGiveReviewStars1()}</div>
         </div>
         <div style="margin-bottom: 20px">
           <span class="giveReviewEventTitle">Hvor godt utbytte fikk du?</span>
-          <div class="giveReviewEventStars" id="testContainer" onclick="model.inputs.review.eventReview2 = 3">${handleGiveReviewStars(
-						5
-					)}</div>
+          <div class="giveReviewEventStars" id="testContainer" onclick="model.inputs.review.eventReview2 = 3">${handleGiveReviewStars2()}</div>
         </div>
         <div style="margin-bottom: 20px; padding: 0 20px;">
           <span class="giveReviewEventTitle">Vil du gi en tilbakemelding til de andre deltagerene?</span>
@@ -377,7 +405,7 @@ function giveReviewView() {
       </div>
     </div>
 
-    <button class="giveReviewBtnConfirm">Bekreft</button>
+    <button class="giveReviewBtnConfirm" onclick="sendReview()">Bekreft</button>
   `;
 
 	return reviewHTML;
@@ -386,10 +414,15 @@ function giveReviewView() {
 function getReviewParticipants(eventId) {
 	let reviewEvent = model.data.events.find((e) => e.eventId === eventId);
 	let participants = model.data.eventParticipants
-		.filter((ep) => ep.eventId === eventId && ep.isConfirmed === true)
+		.filter(
+			(ep) =>
+				ep.eventId === eventId &&
+				ep.isConfirmed === true &&
+				ep.userName !== model.app.state.activeUser
+		)
 		.map((ep) => model.data.users.find((u) => u.userName === ep.userName));
 
-	console.log(participants);
+	// console.log(participants);
 	let html = "";
 	for (let i = 0; i < participants.length; i++) {
 		html += `
@@ -404,7 +437,9 @@ function getReviewParticipants(eventId) {
 				? model.inputs.review.userReviews[i].text
 				: ""
 		}" placeholder="Skriv en tilbakemelding her...">
-          <div class="giveReviewRating">${handleGiveUserReviewStars(i, 5)}</div>
+          <div class="giveReviewRating">${handleGiveReviewStarsParticipants(
+						i
+					)}</div>
         </div>
       </div>
     `;

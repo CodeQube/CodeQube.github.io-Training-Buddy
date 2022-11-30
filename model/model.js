@@ -2,7 +2,7 @@ let model = {
 	//app
 	app: {
 		//What page you are on
-		activePage: "home",
+		activePage: "calendar",
 		subPage: "history",
 		pages: [
 			{
@@ -29,6 +29,8 @@ let model = {
 
 		//state
 		state: {
+			starsCount1: 0,
+			starsCount2: 0,
 			searchBar: false,
 			selectedCard: null, //Card that is selected by event ID, this expands the card
 			activeUser: "Løftekongen86", //The logged in user
@@ -147,7 +149,7 @@ let model = {
 			{
 				id: 1,
 				userName: "britt.elin69",
-				userProfileImg: "../images/profileImg/0.jpg",
+				userProfileImg: "../images/profileImg/37.jpg",
 				userBioBackground: "../images/profileImg/profileBg.png",
 				userDescription:
 					"Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋",
@@ -172,7 +174,7 @@ let model = {
 			{
 				id: 2,
 				userName: "kjellwastaken",
-				userProfileImg: "../images/profileImg/0.jpg",
+				userProfileImg: "../images/profileImg/43.jpg",
 				userBioBackground: "../images/profileImg/profileBg.png",
 				userDescription:
 					"Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋",
@@ -196,7 +198,7 @@ let model = {
 			{
 				id: 3,
 				userName: "jensintens",
-				userProfileImg: "../images/profileImg/0.jpg",
+				userProfileImg: "../images/profileImg/89.jpg",
 				userBioBackground: "../images/profileImg/profileBg.png",
 				userDescription:
 					"Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋",
@@ -220,7 +222,7 @@ let model = {
 			{
 				id: 4,
 				userName: "hugobigg",
-				userProfileImg: "../images/profileImg/0.jpg",
+				userProfileImg: "../images/profileImg/40.jpg",
 				userBioBackground: "../images/profileImg/profileBg.png",
 				userDescription:
 					"Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋",
@@ -244,7 +246,7 @@ let model = {
 			{
 				id: 5,
 				userName: "glenntore420",
-				userProfileImg: "../images/profileImg/0.jpg",
+				userProfileImg: "../images/profileImg/45.jpg",
 				userBioBackground: "../images/profileImg/profileBg.png",
 				userDescription:
 					"Største karen i Larvik, løfta siden før jeg fikk hår på brøstet, Roars gym er plassen 💪🏋",
@@ -273,76 +275,76 @@ let model = {
 			{
 				eventId: 0,
 				isConfirmed: false,
+				hasReviewed: false,
 				userName: "kjellwastaken",
-				userImg: "./images/profiles/2.jpg",
 			},
 			{
 				eventId: 0,
 				isConfirmed: false,
+				hasReviewed: false,
 				userName: "jensintens",
-				userImg: "./images/profiles/3.jpg",
 			},
 			{
 				eventId: 0,
 				isConfirmed: false,
+				hasReviewed: false,
 				userName: "hugobigg",
-				userImg: "./images/profiles/4.jpg",
 			},
 			{
 				eventId: 0,
 				isConfirmed: false,
+				hasReviewed: false,
 				userName: "glenntore420",
-				userImg: "./images/profiles/1.jpg",
 			},
 			//Event 1
 			{
 				eventId: 1,
 				isConfirmed: false,
+				hasReviewed: false,
 				userName: "Løftekongen86",
-				userImg: "./images/profiles/2.jpg",
 			},
 			{
 				eventId: 1,
 				isConfirmed: false,
+				hasReviewed: false,
 				userName: "jensintens",
-				userImg: "./images/profiles/3.jpg",
 			},
 			{
 				eventId: 1,
 				isConfirmed: false,
+				hasReviewed: false,
 				userName: "hugobigg",
-				userImg: "./images/profiles/4.jpg",
 			},
 			{
 				eventId: 1,
 				isConfirmed: false,
+				hasReviewed: false,
 				userName: "glenntore420",
-				userImg: "./images/profiles/1.jpg",
 			},
 			//Event 2
 			{
 				eventId: 4,
 				isConfirmed: true,
+				hasReviewed: true,
 				userName: "Løftekongen86",
-				userImg: "./images/profiles/4.jpg",
 			},
 			{
 				eventId: 4,
 				isConfirmed: true,
+				hasReviewed: false,
 				userName: "jensintens",
-				userImg: "./images/profiles/3.jpg",
 			},
 			{
 				eventId: 4,
 				isConfirmed: true,
+				hasReviewed: false,
 				userName: "hugobigg",
-				userImg: "./images/profiles/4.jpg",
 			},
 			{
 				eventId: 4,
 				isConfirmed: true,
+				hasReviewed: false,
 				userName: "glenntore420",
-				userImg: "./images/profiles/1.jpg",
 			},
 		],
 
@@ -365,6 +367,8 @@ let model = {
 				eventDescTitle: "Overkommelig skogstur for alle som vil",
 				eventDescription:
 					"Vi tar oss en liten løpetur i skogen ved Nøtterøy som alle kan være med på hvis de vil. Oppmøte ved Teigar skole litt før 12 slik at vi kan gjøre oss klare og kanskje preike litt før vi setter ut i skogen. Kle dere godt, det er ganske vått der om dagen.",
+				eventReviews: [],
+				eventIsClosed: false,
 			},
 			{
 				eventId: 1,
@@ -382,6 +386,8 @@ let model = {
 				eventDescTitle: "En kort luftetur",
 				eventDescription:
 					"Hei alle sammen. Jeg tenkte vi kunne ta oss en luftetur nå på lørdag hvor vi først rusler en liten tur og så ender opp på kafe når vi er ferdige",
+				eventReviews: [],
+				eventIsClosed: false,
 			},
 			{
 				eventId: 2,
@@ -400,6 +406,8 @@ let model = {
 				eventDescTitle: "FRAM MED RYGGEN",
 				eventDescription:
 					"Oppmøte på Roars som vanlig! Det blir en ganske hardcore økt men det burde dere tåle",
+				eventReviews: [],
+				eventIsClosed: false,
 			},
 			{
 				eventId: 3,
@@ -417,6 +425,8 @@ let model = {
 				eventDescTitle: "Tøff økt for de som vil pumpe på Roars",
 				eventDescription:
 					"Det er fredan og det betyr at det er tid for å pumpe litt jern igjen. Vi kjører en heftig økt for å blodtrimme bissane",
+				eventReviews: [],
+				eventIsClosed: false,
 			},
 			{
 				eventId: 4,
@@ -434,6 +444,8 @@ let model = {
 				eventDescTitle: "Klatring og akrobatikk for nybegynnere",
 				eventDescription:
 					"Jeg er så heldig å ha fått låne ribbeveggen på Berg Skole. Vi kjører litt klatring og diverse akrobatiske øvelser. Vell møtt!",
+				eventReviews: [],
+				eventIsClosed: false,
 			},
 			{
 				eventId: 5,
@@ -451,6 +463,8 @@ let model = {
 				eventDescTitle: "Uforventet Spinning økt",
 				eventDescription:
 					"Etter dårlig resultat fra bulkinga har jeg bestemt meg for å kjøre en spinningøkt for å få vekk unødvendig fett fra magen. Kom og bli med!",
+				eventReviews: [],
+				eventIsClosed: false,
 			},
 		],
 	},

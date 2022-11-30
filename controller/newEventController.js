@@ -15,6 +15,8 @@ function handleCreateNewEvent() {
 		eventTime: model.inputs.newEventTime,
 		eventDescTitle: event.newEventDescTitle,
 		eventDescription: event.newEventDescription,
+		eventReviews: [],
+		eventIsClosed: false,
 	});
 	model.app.activePage = "home";
 	mainView();

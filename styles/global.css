@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 body {
+  font-family: 'Inter';
   background: #6b6b6b;
   margin: 0;
   padding: 0;
@@ -13,7 +14,7 @@ body {
 
 .eventCard {
   position: relative;
-  width: 400px;
+  width: 395px;
   height: 132px;
   background-color: #1e1e1e;
   border-top: 1px solid #6B6B6B;
@@ -24,10 +25,10 @@ body {
 
 .eventCardOpen {
   position: relative;
-  width: 400px;
+  width: 395px;
   height: 264px;
   background-color: #1e1e1e;
-  border: 1px solid 6B6B6B;
+  border: 1px solid #6B6B6B;
   color: #fff;
   z-index: 2;
 }
@@ -46,15 +47,26 @@ body {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.eventImgBg {
+.eventImgBgClosed {
+  width: 375px;
+  height: 132px;
   position: absolute;
   margin-left: 6%;
-  opacity: 15%;
+  opacity: 100%;
 }
+.eventImgBgOpen {
+  width: 375px;
+  height: 264px;
+  position: absolute;
+  margin-left: 6%;
+  opacity: 100%;
+}
+
 
 .eventInfoContainer {
   position: relative;
   margin-left: 6%;
+  
 }
 
 .eventTitle {
@@ -66,6 +78,11 @@ body {
   margin-top: 0px;
   margin-left: 5px;
   position: absolute;
+  text-shadow:
+  0.07em 0 black,
+  0 0.07em black,
+  -0.07em 0 black,
+  0 -0.07em black;
 }
 
 .eventLocation {
@@ -81,6 +98,7 @@ body {
 }
 
 .eventDescContainer {
+  font-family: 'Inter';
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -161,8 +179,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-left: 53px;
+  margin-left: 40px;
   margin-top: 25px;
+  position: absolute;
+}
+
+.intensityContainerProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 40px;
+  margin-top: 170px;
   position: absolute;
 }
 
@@ -171,8 +198,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 325px;
-  margin-top: 5px;
+  margin-left: 305px;
+  /* margin-top: 5px; */
 }
 
 .intensityBar {
@@ -194,7 +221,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 355px;
+  margin-left: 330px;
 }
 
 .intensityContainerClosed {
@@ -202,7 +229,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-left: 335px;
+  margin-left: 320px;
   margin-top: 85px;
 }
 
@@ -278,8 +305,8 @@ body {
   user-select: none;
   position: absolute;
   color: white;
-  margin-left: 7px;
-  margin-top: 9px;
+  margin-left: 6px;
+  margin-top: 8px;
   font-weight: bold;
 }
 
@@ -331,6 +358,4 @@ border: none;
 border-bottom: 2px solid #676464;
 outline: none;
 }
-
-
 
