@@ -41,12 +41,18 @@ function drawHeaderHome() {
       <div class="searchIcon">${searchIconfunc()}
       <input style="${
         model.app.state.searchBar === false ? 'display:none' : ''
-      }"type="text" placeholder="Søk etter økt her">
+      }"type="text" autofocus placeholder="Søk etter økt her">
       </div>
     </div>
-    <div class="headerPages">
-      <div class="allPage">Alle</div>
-      <div class="recommendedPage">Anbefalt</div>
+    <div class="headerPages" style="${
+      model.app.state.searchBar === true ? 'display:none' : ''
+    }">
+      <div onclick="setActivePage('home')" class="allPage" style="${
+        model.app.subPage === 'home' ? 'opacity: 100%' : 'opacity: 40%'
+      }">Alle</div>
+      <div onclick="setActivePage('forYou')" class="recommendedPage" style="${
+        model.app.subPage === 'forYou' ? 'opacity: 100%' : 'opacity: 40%'
+      }">Anbefalt</div>
     </div>
     <div class="notificationContainer">${notificationIcon}
     </div>

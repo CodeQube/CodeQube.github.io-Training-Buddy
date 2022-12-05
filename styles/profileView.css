@@ -25,12 +25,12 @@
 }
 
 .dotContainer {
-  width: 350px;
+  width: 400px;
   display: flex;
-  margin-left: 10px;
   margin-top: 100px;
+  margin-left: -20px;
   font-size: 14px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .dotInactive {
@@ -48,11 +48,12 @@
   height: 96px;
   margin-left: 150px;
   margin-top: 30px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.59);
+  border: 4px solid #6b6b6b;
 }
 
 .profileStatsContainer {
   margin-top: -100px;
-
 }
 
 .profilePoeng {
@@ -68,7 +69,7 @@
 .laget {
   position: absolute;
   margin-top: 0px;
-  margin-left: 157px;
+  margin-left: 158px;
   display: flex;
   flex-direction: column;
   /* justify-content:center; */
@@ -105,12 +106,15 @@
   height: 55px;
   margin-left: 28px;
   margin-top: -28px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.59);
+  border: 2px solid #6b6b6b;
 }
 
 .reviewName {
   position: absolute;
-  margin-left: 90px;
+  margin-left: 100px;
   margin-top: -20px;
+  opacity: 80%;
 }
 
 .reviewText {
@@ -119,9 +123,11 @@
   width: 320px;
   height: 77px;
   border: 2px solid #6b6b6b;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.59);
 }
 .reviewTextTxt {
-  margin-left: 50px;
+  margin-top: 25px;
+  margin-left: 40px;
   width: 250px;
   height: 69px;
 }
@@ -157,6 +163,7 @@
 }
 
 .profileTag {
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.59);
   display: flex;
   justify-content: center;
   align-items: center;

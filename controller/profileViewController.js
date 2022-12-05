@@ -1,22 +1,3 @@
-// let profileHeader = document.getElementById('profileHeaderDrag');
-// profileHeader.addEventListener(
-//   'touchstart',
-//   function (event) {
-//     touchstartX = event.changedTouches[0].screenX;
-//   },
-//   false
-// );
-
-// profileHeader.addEventListener(
-//   'touchend',
-//   function (event) {
-//     touchendX = event.changedTouches[0].screenX;
-//     console.log(touchendX);
-//     profileHandleSwipe();
-//   },
-//   false
-// );
-
 function profileHandleSwipe() {
   switch (model.app.subPage) {
     case 'bio':

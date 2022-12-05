@@ -61,16 +61,17 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin-left: -180px;
   margin-top: 60px;
 }
 
 .eventParticipantsFixed {
-  width: 40px;
-  height: 40px;
+  width: 64px;
+  height: 64px;
   border: 2px solid red;
   border-radius: 50%;
-  margin-left: 5px;
+  margin-left: -10px;
 }
 
 .giveReviewBtn {
@@ -215,8 +216,7 @@
   display: none;
 }
 
-
-.reviewStarsParticipants{
+.reviewStarsParticipants {
   align-items: center;
   justify-content: center;
 }
@@ -238,7 +238,7 @@
   cursor: pointer;
 }
 
-.tilbakemelding{
+.tilbakemelding {
   height: 200px;
   text-align: center;
   display: flex;

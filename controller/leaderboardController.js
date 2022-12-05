@@ -13,7 +13,6 @@ function setUserRanking() {
 
 function userClick(user) {
   model.app.state.selectedUser = user;
-  console.log('User', model.app.state.selectedUser);
   model.app.activePage = 'profile';
   model.app.subPage = 'bio';
   mainView();

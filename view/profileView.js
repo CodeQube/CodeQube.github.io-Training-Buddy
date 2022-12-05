@@ -1,77 +1,68 @@
-//View for profile bio
-// function setCurrentUser() {
-//   let selectedUser = model.app.state.selectedUser;
-//   let currentUser = model.data.users.filter((user) => {
-//     return user.userName === selectedUser;
-//   });
-//   return currentUser;
-// }
-
 function profileBioView() {
-	document.getElementById("app").innerHTML = `
+  document.getElementById('app').innerHTML = `
     <div id="profileHeaderDrag" class="profileHeader">${drawProfile()}</div>
     ${selectProfileView()}
     ${drawFooter()}
     `;
-	let profileHeader = document.getElementById("profileHeaderDrag");
-	profileHeader.addEventListener(
-		"touchstart",
-		function (event) {
-			touchstartX = event.changedTouches[0].screenX;
-		},
-		false
-	);
+  let profileHeader = document.getElementById('profileHeaderDrag');
+  profileHeader.addEventListener(
+    'touchstart',
+    function (event) {
+      touchstartX = event.changedTouches[0].screenX;
+    },
+    false
+  );
 
-	profileHeader.addEventListener(
-		"touchend",
-		function (event) {
-			touchendX = event.changedTouches[0].screenX;
-			profileHandleSwipe();
-		},
-		false
-	);
+  profileHeader.addEventListener(
+    'touchend',
+    function (event) {
+      touchendX = event.changedTouches[0].screenX;
+      profileHandleSwipe();
+    },
+    false
+  );
 }
 
 function selectProfileView() {
-	let currentUser = getCurrentUser();
-	switch (model.app.subPage) {
-		case "bio":
-			return `<div class="bioContainer" style="background-image: url(${
-				currentUser.userBioBackground
-			})">${drawBio()}</div> `;
-		case "reviews":
-			return `<div class="reviewContainer">${drawReviews()}</div>`;
-		case "eventsCreated":
-			return `<div class='createdEventsContainer'>${drawCreatedEvents()}</div>`;
-	}
+  let currentUser = getCurrentUser();
+  switch (model.app.subPage) {
+    case 'bio':
+      return `<div class="bioContainer" style="background-image: url(${
+        currentUser.userBioBackground
+      })">${drawBio()}</div> `;
+    case 'reviews':
+      return `<div class="reviewContainer">${drawReviews()}</div>`;
+    case 'eventsCreated':
+      return `<div class='createdEventsContainer'>${drawCreatedEvents()}</div>`;
+  }
 }
 
 function drawBio() {
-	let currentUser = getCurrentUser();
-	let bioHTML = "";
-	bioHTML = /*HTML*/ `
+  let currentUser = getCurrentUser();
+  let bioHTML = '';
+  bioHTML = /*HTML*/ `
 	
       <div class="profileDesc">${currentUser.userDescription}</div>
       <div class="profileTagContainer">
         ${drawUserTags()}
       </div>
   `;
-	return bioHTML;
+  return bioHTML;
 }
 
 function drawUserTags() {
-	let currentUser = getCurrentUser();
-	let userTagsHTML = "";
-	for (let i = 0; i < currentUser.userTags.length; i++) {
-		userTagsHTML += `<div class="profileTag" id="${i}">${currentUser.userTags[i]}</div>`;
-	}
-	return userTagsHTML;
+  let currentUser = getCurrentUser();
+  let userTagsHTML = '';
+  for (let i = 0; i < currentUser.userTags.length; i++) {
+    userTagsHTML += `<div class="profileTag" id="${i}">${currentUser.userTags[i]}</div>`;
+  }
+  return userTagsHTML;
 }
 
 function drawProfile() {
-	let currentUser = getCurrentUser();
-	let profileHTML = "";
-	profileHTML = /*HTML*/ `
+  let currentUser = getCurrentUser();
+  let profileHTML = '';
+  profileHTML = /*HTML*/ `
   <div class="icon">${settingsIcon}</div>
   <img src="${currentUser.userProfileImg}">
   <div class="profileNameLoc">
@@ -101,77 +92,71 @@ function drawProfile() {
 
   </div>
   `;
-	return profileHTML;
+  return profileHTML;
 }
 
 function drawDots() {
-	switch (model.app.subPage) {
-		case "bio":
-			return `<span class="dotInactive">Tilbakemeldinger</span>
+  switch (model.app.subPage) {
+    case 'bio':
+      return `<span class="dotInactive">Tilbakemeldinger</span>
       <span class="dotActive">Bio</span>
-      <span class="dotInactive">Økter laget</span>`;
+      <span class="dotInactive lagetFix">Økter laget</span>`;
 
-		case "reviews":
-			return `<span class="dotActive">Tilbakemeldinger</span>
+    case 'reviews':
+      return `<span class="dotActive">Tilbakemeldinger</span>
       <span class="dotInactive">Bio</span>
-      <span class="dotInactive">Økter laget</span>`;
+      <span class="dotInactive lagetFix">Økter laget</span>`;
 
-		case "eventsCreated":
-			return `<span class="dotInactive">Tilbakemeldinger</span>
+    case 'eventsCreated':
+      return `<span class="dotInactive">Tilbakemeldinger</span>
       <span class="dotInactive">Bio</span>
-      <span class="dotActive">Økter laget</span>`;
-	}
+      <span class="dotActive lagetFix">Økter laget</span>`;
+  }
 }
 
 //View for profile reviews
 function drawReviews() {
-	let currentUser = getCurrentUser();
-	let reviewsHTML = "";
-	for (let i = 0; i < currentUser.userReviews.length; i++) {
-		reviewsHTML += /*HTML*/ `
+  let currentUser = getCurrentUser();
+  let reviewsHTML = '';
+  for (let i = 0; i < currentUser.userReviews.length; i++) {
+    reviewsHTML += /*HTML*/ `
     <div class="reviewSmallContainer">
     <img class="reviewPic" src="${getSubmitter(i).userProfileImg}">
     <div class="reviewName">${currentUser.userReviews[i].reviewSubmitter}</div>
     <div class="reviewText"><div class="reviewTextTxt">${
-			currentUser.userReviews[i].reviewDescription
-		}</div></div>
+      currentUser.userReviews[i].reviewDescription
+    }</div></div>
     <div class="reviewRating">${handleReviewStars(
-			currentUser.userReviews[i].reviewScore
-		)}</div>
+      currentUser.userReviews[i].reviewScore
+    )}</div>
     </div>
     `;
-	}
-	return reviewsHTML;
+  }
+  return reviewsHTML;
 }
 
 function handleReviewStars(count) {
-	return starsIcon.repeat(count);
+  return starsIcon.repeat(count);
 }
 
 //View for profile events created
 function drawCreatedEvents() {
-	//filter
-	let filteredEvents = model.data.events.filter(
-		(e) => e.eventOwnerId === model.app.state.selectedUser
-	);
+  //filter
+  let filteredEvents = model.data.events.filter(
+    (e) => e.eventOwnerId === model.app.state.selectedUser
+  );
 
-	// let filteredEvents = model.data.events.find(
-	//   (event) => event.eventOwnerId === model.app.state.selectedUser
-	// );
-	// console.log(filteredEvents[0].eventId);
-	let eventHTML = "";
-	for (let i = 0; i < filteredEvents.length; i++) {
-		const isCardOpen = model.app.state.selectedCard === i;
-		// console.log(filteredEvents[i]);
-		// console.log(filteredEvents[i].eventId);
-		eventHTML += `<div>${
-			isCardOpen
-				? // Open Card
-				  `
+  let eventHTML = '';
+  for (let i = 0; i < filteredEvents.length; i++) {
+    const isCardOpen = model.app.state.selectedCard === i;
+    eventHTML += `<div>${
+      isCardOpen
+        ? // Open Card
+          `
         <div class="eventCardOpen"  id="#${filteredEvents[i].eventId}">
           <div class="intensityBar" style="background-color: ${setIntensityBar(
-						filteredEvents[i].eventId
-					)};" ></div>
+            filteredEvents[i].eventId
+          )};" ></div>
 							<div class="eventImgContainer">
 								<div class="eventImgBgOpen" style="background-image:
 								linear-gradient(
@@ -189,21 +174,21 @@ function drawCreatedEvents() {
             <div class="eventInfoContainer">
               <div class="eventTitle">${filteredEvents[i].eventName}</div>
               <div class="eventLocation">${
-								filteredEvents[i].eventLocation
-							}</div>
+                filteredEvents[i].eventLocation
+              }</div>
               <div class="eventCategoryContainer">
                 <div class="eventSubCategory">${
-									filteredEvents[i].eventSubCategory
-								}</div>
+                  filteredEvents[i].eventSubCategory
+                }</div>
                 ${setEventCategory(filteredEvents[i].eventId)}
               </div>
               <div class="eventDescContainer">
                 <div class="eventDescTitle">${
-									filteredEvents[i].eventDescTitle
-								}</div>
+                  filteredEvents[i].eventDescTitle
+                }</div>
                 <div class="eventDescription">${
-									filteredEvents[i].eventDescription
-								}</div>
+                  filteredEvents[i].eventDescription
+                }</div>
               </div>
 
               <div class="eventDateTimeOpen">
@@ -215,12 +200,12 @@ function drawCreatedEvents() {
 
           </div>
         `
-				: //Closed Card
-				  `
+        : //Closed Card
+          `
         <div class="eventCard"  id="#${filteredEvents[i].eventId}">
           <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
-						filteredEvents[i].eventId
-					)};" ></div>
+            filteredEvents[i].eventId
+          )};" ></div>
 					<div class="eventImgContainer">
 					<div class="eventImgBgClosed" style="background-image:
 					linear-gradient(
@@ -239,8 +224,8 @@ function drawCreatedEvents() {
           </div>
           <div class="eventCategoryContainerClosed">
               <div class="eventSubCategory">${
-								filteredEvents[i].eventSubCategory
-							}</div>
+                filteredEvents[i].eventSubCategory
+              }</div>
               ${setEventCategory(filteredEvents[i].eventId)}
             </div>
             <div class="intensityContainerClosed">
@@ -248,15 +233,11 @@ function drawCreatedEvents() {
               <div>intensitet</div>
             </div>
           <div href="#${
-						filteredEvents[i].eventId
-					}" onclick="openCard(${i})" class="showMore">Vis mer</br> ﹀</div>
+            filteredEvents[i].eventId
+          }" onclick="openCard(${i})" class="showMore">Vis mer</br> ﹀</div>
         </div>
       `
-		}</div>`;
-	}
-	return eventHTML;
+    }</div>`;
+  }
+  return eventHTML;
 }
-
-// bio
-// reviews
-// eventsCreated

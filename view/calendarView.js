@@ -1,74 +1,66 @@
 function calendarView() {
-	document.getElementById("app").innerHTML = `
+  document.getElementById('app').innerHTML = `
           ${
-						model.app.subPage != "review"
-							? `
+            model.app.subPage != 'review'
+              ? `
               <div class='calendarHeaderContainer'>${drawCalendarHeader()}</div>
               <div class="calendarContainer">${selectCalendarView()}</div>
               `
-							: `<div class="calendarContainerReview">${selectCalendarView()}</div>`
-					}
+              : `<div class="calendarContainerReview">${selectCalendarView()}</div>`
+          }
           
           ${drawFooter()}
           `;
 }
 
 function selectCalendarView() {
-	switch (model.app.subPage) {
-		case "active":
-			return calendarActiveView();
-		case "history":
-			return calendarHistoryView();
-		case "upcoming":
-			return calendarUpcomingView();
-		case "review":
-			return giveReviewView();
-	}
+  switch (model.app.subPage) {
+    case 'active':
+      return calendarActiveView();
+    case 'history':
+      return calendarHistoryView();
+    case 'upcoming':
+      return calendarUpcomingView();
+    case 'review':
+      return giveReviewView();
+  }
 }
 
 function drawCalendarHeader() {
-	return `
+  return `
   <div class="calendarHeader">
     	<div>${filterIcon}</div>
       <span onclick="setCalendarSubPage('upcoming')" style="opacity: ${
-				model.app.subPage === "upcoming" ? "100%" : "50%"
-			}">Kommende</span>
+        model.app.subPage === 'upcoming' ? '100%' : '50%'
+      }">Kommende</span>
 			<span onclick="setCalendarSubPage('history')" style="opacity: ${
-				model.app.subPage === "history" ? "100%" : "50%"
-			}">Historikk</span>
+        model.app.subPage === 'history' ? '100%' : '50%'
+      }">Historikk</span>
       <span onclick="setCalendarSubPage('active')" style="opacity: ${
-				model.app.subPage === "active" ? "100%" : "50%"
-			}">Aktive</span>
+        model.app.subPage === 'active' ? '100%' : '50%'
+      }">Aktive</span>
       </div>
     `;
 }
 
 //View for upcomming events
-// function calendarUpcomingView() {
-//   //Filtrere eventer som du har meldt deg på etter dato og tid
-//   for (let i = 0; i < filter.length; i++) {
-
-//   }
-//   // console.log(filter);
-// }
-
 function calendarUpcomingView() {
-	let events = model.data.eventParticipants
-		.filter((ep) => ep.userName === model.app.state.activeUser)
-		.map((ep) => model.data.events.find((e) => e.eventId === ep.eventId));
-	let cardsHtml = "";
-	for (let i = 0; i < events.length; i++) {
-		const event = events[i];
+  let events = model.data.eventParticipants
+    .filter((ep) => ep.userName === model.app.state.activeUser)
+    .map((ep) => model.data.events.find((e) => e.eventId === ep.eventId));
+  let cardsHtml = '';
+  for (let i = 0; i < events.length; i++) {
+    const event = events[i];
 
-		const isCardOpen = model.app.state.selectedCard === event.eventId;
-		cardsHtml += `<div>${
-			isCardOpen
-				? // Open Card
-				  `
+    const isCardOpen = model.app.state.selectedCard === event.eventId;
+    cardsHtml += `<div>${
+      isCardOpen
+        ? // Open Card
+          `
         <div class="eventCardOpen" id="#${event.eventId}">
           <div class="intensityBar" style="background-color: ${setIntensityBar(
-						event.eventId
-					)};" ></div>
+            event.eventId
+          )};" ></div>
             <div class="eventImgContainer">
               <div class="eventImgBgOpen" style="background-image:
               linear-gradient(
@@ -87,8 +79,8 @@ function calendarUpcomingView() {
                 <div>intensitet</div>
               </div>
               <button class="eventSignUpBtn" onclick="removeFromEvent(${
-								event.eventId
-							})">Meld av</button>
+                event.eventId
+              })">Meld av</button>
             </div>
             <div class="eventInfoContainer">
               <div class="eventTitle">${event.eventName}</div>
@@ -108,17 +100,17 @@ function calendarUpcomingView() {
               </div>
             </div>
             <div onclick="openCard(${
-							event.eventId
-						})" class="showLess">Vis mindre </br> ︿</div>
+              event.eventId
+            })" class="showLess">Vis mindre </br> ︿</div>
 
           </div>
         `
-				: //Closed Card
-				  `
+        : //Closed Card
+          `
         <div class="eventCard"  id="#${event.eventId}">
           <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
-						event.eventId
-					)};" ></div>
+            event.eventId
+          )};" ></div>
           <div class="eventImgContainer">
             <div class="eventImgBgClosed" style="background-image:
             linear-gradient(
@@ -144,13 +136,13 @@ function calendarUpcomingView() {
               <div>intensitet</div>
             </div>
           <div href="#${event.eventId}" onclick="openCard(${
-						event.eventId
-				  })" class="showMore">Vis mer</br> ﹀</div>
+            event.eventId
+          })" class="showMore">Vis mer</br> ﹀</div>
         </div>
       `
-		}</div>`;
-	}
-	return cardsHtml;
+    }</div>`;
+  }
+  return cardsHtml;
 }
 
 // let filteredEvents = model.data.events.filter(
@@ -159,31 +151,31 @@ function calendarUpcomingView() {
 
 //View for history events
 function calendarHistoryView() {
-	//Filtrere eventer som har skjedd hvor du har blitt bekreftet
-	//når skaperen av et event trykker at du er bekreftet legges navnet ditt inn i et array i det respektive eventet
-	let events = model.data.eventParticipants
-		.filter(
-			(ep) =>
-				ep.userName === model.app.state.activeUser && ep.isConfirmed == true
-		)
-		.map((ep) => model.data.events.find((e) => e.eventId === ep.eventId));
-	let participant = model.data.eventParticipants.find(
-		(ep) => ep.userName === model.app.state.activeUser
-	);
+  //Filtrere eventer som har skjedd hvor du har blitt bekreftet
+  //når skaperen av et event trykker at du er bekreftet legges navnet ditt inn i et array i det respektive eventet
+  let events = model.data.eventParticipants
+    .filter(
+      (ep) =>
+        ep.userName === model.app.state.activeUser && ep.isConfirmed == true
+    )
+    .map((ep) => model.data.events.find((e) => e.eventId === ep.eventId));
+  let participant = model.data.eventParticipants.find(
+    (ep) => ep.userName === model.app.state.activeUser
+  );
 
-	let cardsHtml = "";
-	for (let i = 0; i < events.length; i++) {
-		const event = events[i];
+  let cardsHtml = '';
+  for (let i = 0; i < events.length; i++) {
+    const event = events[i];
 
-		const isCardOpen = model.app.state.selectedCard === event.eventId;
-		cardsHtml += `<div>${
-			isCardOpen
-				? // Open Card
-				  `
+    const isCardOpen = model.app.state.selectedCard === event.eventId;
+    cardsHtml += `<div>${
+      isCardOpen
+        ? // Open Card
+          `
           <div class="eventCardOpen" id="#${event.eventId}">
             <div class="intensityBar" style="background-color: ${setIntensityBar(
-							event.eventId
-						)};" ></div>
+              event.eventId
+            )};" ></div>
             <div class="eventImgContainer">
             <div class="eventImgBgOpen" style="background-image:
             linear-gradient(
@@ -198,10 +190,10 @@ function calendarHistoryView() {
                   <div>intensitet</div>
                 </div>
                 ${
-									participant.hasReviewed === true
-										? `<div class="tilbakemelding">Du har allerede gitt tilbakemelding</div>`
-										: `<button class="giveReviewBtn" onclick="setActiveReviewEvent(${event.eventId})">Gi en tilbakemelding</button>`
-								}
+                  participant.hasReviewed === true
+                    ? `<div class="tilbakemelding">Du har allerede gitt tilbakemelding</div>`
+                    : `<button class="giveReviewBtn" onclick="setActiveReviewEvent(${event.eventId})">Gi en tilbakemelding</button>`
+                }
               </div>
               <div class="eventInfoContainer">
                 <div class="eventTitle">${event.eventName}</div>
@@ -217,17 +209,17 @@ function calendarHistoryView() {
                 </div>
               </div>
               <div onclick="openCard(${
-								event.eventId
-							})" class="showLess">Vis mindre </br> ︿</div>
+                event.eventId
+              })" class="showLess">Vis mindre </br> ︿</div>
   
             </div>
           `
-				: //Closed Card
-				  `
+        : //Closed Card
+          `
           <div class="eventCard"  id="#${event.eventId}">
             <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
-							event.eventId
-						)};" ></div>
+              event.eventId
+            )};" ></div>
             <div class="eventImgContainer">
               <div class="eventImgBgClosed" style="background-image:
               linear-gradient(
@@ -253,37 +245,35 @@ function calendarHistoryView() {
                 <div>intensitet</div>
               </div>
             <div href="#${event.eventId}" onclick="openCard(${
-						event.eventId
-				  })" class="showMore">Vis mer</br> ﹀</div>
+            event.eventId
+          })" class="showMore">Vis mer</br> ﹀</div>
           </div>
         `
-		}</div>`;
-	}
-	return cardsHtml;
+    }</div>`;
+  }
+  return cardsHtml;
 }
 
 //View for active events
 function calendarActiveView() {
-	//filterere dine aktive økter som du har laget, kunne redigere og slette samt bekrefte påmeldte bruekere
-	//filter
-	let filteredEvents = model.data.events.filter(
-		(e) =>
-			e.eventOwnerId === model.app.state.selectedUser &&
-			e.eventIsClosed == false
-	);
-	let eventHTML = "";
-	for (let i = 0; i < filteredEvents.length; i++) {
-		const isCardOpen = model.app.state.selectedCard === i;
-		// console.log(filteredEvents[i]);
-		// console.log(filteredEvents[i].eventId);
-		eventHTML += `<div>${
-			isCardOpen
-				? // Open Card
-				  `
+  //filterere dine aktive økter som du har laget, kunne redigere og slette samt bekrefte påmeldte bruekere
+  //filter
+  let filteredEvents = model.data.events.filter(
+    (e) =>
+      e.eventOwnerId === model.app.state.selectedUser &&
+      e.eventIsClosed == false
+  );
+  let eventHTML = '';
+  for (let i = 0; i < filteredEvents.length; i++) {
+    const isCardOpen = model.app.state.selectedCard === i;
+    eventHTML += `<div>${
+      isCardOpen
+        ? // Open Card
+          `
       <div class="eventCardOpen"  id="#${filteredEvents[i].eventId}">
         <div class="intensityBar" style="background-color: ${setIntensityBar(
-					filteredEvents[i].eventId
-				)};" ></div>
+          filteredEvents[i].eventId
+        )};" ></div>
         <div class="eventImgContainer">
           <div class="eventImgBgOpen" style="background-image:
           linear-gradient(
@@ -309,8 +299,8 @@ function calendarActiveView() {
             <div class="eventLocation">${filteredEvents[i].eventLocation}</div>
             <div class="eventCategoryContainer">
               <div class="eventSubCategory">${
-								filteredEvents[i].eventSubCategory
-							}</div>
+                filteredEvents[i].eventSubCategory
+              }</div>
               ${setEventCategory(filteredEvents[i].eventId)}
             </div>
             
@@ -324,12 +314,12 @@ function calendarActiveView() {
 
         </div>
       `
-				: //Closed Card
-				  `
+        : //Closed Card
+          `
       <div class="eventCard"  id="#${filteredEvents[i].eventId}">
         <div class="intensityBarClosed" style="background-color: ${setIntensityBar(
-					filteredEvents[i].eventId
-				)};" ></div>
+          filteredEvents[i].eventId
+        )};" ></div>
         <div class="eventImgContainer">
           <div class="eventImgBgClosed" style="background-image:
           linear-gradient(
@@ -348,8 +338,8 @@ function calendarActiveView() {
         </div>
         <div class="eventCategoryContainerClosed">
             <div class="eventSubCategory">${
-							filteredEvents[i].eventSubCategory
-						}</div>
+              filteredEvents[i].eventSubCategory
+            }</div>
             ${setEventCategory(filteredEvents[i].eventId)}
           </div>
           <div class="intensityContainerClosed">
@@ -357,29 +347,21 @@ function calendarActiveView() {
             <div>intensitet</div>
           </div>
         <div href="#${
-					filteredEvents[i].eventId
-				}" onclick="openCard(${i})" class="showMore">Vis mer</br> ﹀</div>
+          filteredEvents[i].eventId
+        }" onclick="openCard(${i})" class="showMore">Vis mer</br> ﹀</div>
       </div>
     `
-		}</div>`;
-	}
-	return eventHTML;
+    }</div>`;
+  }
+  return eventHTML;
 }
 
 function giveReviewView() {
-	//View for å gi en review
-	let reviewEventId = model.app.state.activeReviewEvent;
-	let reviewEvent = model.data.events.find((e) => e.eventId === reviewEventId);
-	// console.log(reviewEvent);
-	// let event = model.data.eventParticipants
-	//   .filter(
-	//     (ep) =>
-	//       ep.userName === model.app.state.activeUser &&
-	//       ep.isConfirmed == true &&
-	//   )
-	//   .map((ep) => model.data.events.find((e) => e.eventId === ep.eventId));
+  //View for å gi en review
+  let reviewEventId = model.app.state.activeReviewEvent;
+  let reviewEvent = model.data.events.find((e) => e.eventId === reviewEventId);
 
-	let reviewHTML = `
+  let reviewHTML = `
     <div class="giveReviewHeader">
       <div class="giveReviewTitle">${reviewEvent.eventName}</div>
       <div class="giveReviewLocation">${reviewEvent.eventLocation}</div>
@@ -389,11 +371,11 @@ function giveReviewView() {
       <div class="giveReviewEventContainer">
         <div style="margin: 20px 0">
           <span class="giveReviewEventTitle">Hvor inspirert ble du av denne økten?</span>
-          <div class="giveReviewEventStars" onclick="model.inputs.review.eventReview1 = 3">${handleGiveReviewStars1()}</div>
+          <div class="giveReviewEventStars">${handleGiveReviewStars1()}</div>
         </div>
         <div style="margin-bottom: 20px">
           <span class="giveReviewEventTitle">Hvor godt utbytte fikk du?</span>
-          <div class="giveReviewEventStars" id="testContainer" onclick="model.inputs.review.eventReview2 = 3">${handleGiveReviewStars2()}</div>
+          <div class="giveReviewEventStars" id="testContainer">${handleGiveReviewStars2()}</div>
         </div>
         <div style="margin-bottom: 20px; padding: 0 20px;">
           <span class="giveReviewEventTitle">Vil du gi en tilbakemelding til de andre deltagerene?</span>
@@ -408,42 +390,41 @@ function giveReviewView() {
     <button class="giveReviewBtnConfirm" onclick="sendReview()">Bekreft</button>
   `;
 
-	return reviewHTML;
+  return reviewHTML;
 }
 
 function getReviewParticipants(eventId) {
-	let reviewEvent = model.data.events.find((e) => e.eventId === eventId);
-	let participants = model.data.eventParticipants
-		.filter(
-			(ep) =>
-				ep.eventId === eventId &&
-				ep.isConfirmed === true &&
-				ep.userName !== model.app.state.activeUser
-		)
-		.map((ep) => model.data.users.find((u) => u.userName === ep.userName));
+  let reviewEvent = model.data.events.find((e) => e.eventId === eventId);
+  let participants = model.data.eventParticipants
+    .filter(
+      (ep) =>
+        ep.eventId === eventId &&
+        ep.isConfirmed === true &&
+        ep.userName !== model.app.state.activeUser
+    )
+    .map((ep) => model.data.users.find((u) => u.userName === ep.userName));
 
-	// console.log(participants);
-	let html = "";
-	for (let i = 0; i < participants.length; i++) {
-		html += `
+  let html = '';
+  for (let i = 0; i < participants.length; i++) {
+    html += `
       <div class="giveReviewParticipant">
         <div class="reviewSmallContainer">
           <img class="giveReviewPic" src="${participants[i].userProfileImg}">
           <div class="giveReviewUsername">${
-						model.inputs.review.userReviews[i].userName
-					}</div>
+            model.inputs.review.userReviews[i].userName
+          }</div>
           <input type="text" class="giveReviewInput" oninput="model.inputs.review.userReviews[${i}].text=this.value" value="${
-			model.inputs.review.userReviews[i].text != ""
-				? model.inputs.review.userReviews[i].text
-				: ""
-		}" placeholder="Skriv en tilbakemelding her...">
+      model.inputs.review.userReviews[i].text != ''
+        ? model.inputs.review.userReviews[i].text
+        : ''
+    }" placeholder="Skriv en tilbakemelding her...">
           <div class="giveReviewRating">${handleGiveReviewStarsParticipants(
-						i
-					)}</div>
+            i
+          )}</div>
         </div>
       </div>
     `;
-	}
+  }
 
-	return html;
+  return html;
 }

@@ -30,12 +30,10 @@ function setActiveReviewEvent(eventId) {
       text: '',
     });
   }
-  // model.inputs.review.userReviews[index].score
   setCalendarSubPage('review');
 }
 
 function confirmParticipant(index) {
-  // console.log(index);
   model.data.eventParticipants[index].isConfirmed =
     !model.data.eventParticipants[index].isConfirmed;
   mainView();
@@ -50,8 +48,6 @@ function handleConfirmEvent(index) {
   let participant = model.data.eventParticipants.filter(
     (ep) => ep.eventId === index && ep.isConfirmed === true
   );
-
-  console.log(participant);
 
   participant.map((t) => {
     let user = model.data.users.find((u) => u.userName === t.userName);
@@ -77,7 +73,6 @@ function handleStars(i, num) {
   if (num === 2) {
     model.app.state.starsCount2 = i;
   }
-  console.log(model.app.state.starsCount1);
 
   mainView();
 }
@@ -99,7 +94,6 @@ function handleGiveReviewStars1() {
 }
 
 function handleGiveReviewStars2() {
-  // model.app.state.starsCount2 = starsCount;
   let html = '';
   for (let i = 1; i < 6; i++) {
     html += `<div onclick="handleStars(${i}, 2)" class="testTest" id="${i + 1}">
@@ -135,7 +129,7 @@ function sendReview() {
   userReview.map((ur, index) => {
     let user = model.data.users.find((u) => u.userName === ur.userName);
     user.userReviews.push({
-      reviewSubmitter: userReview[index].userName,
+      reviewSubmitter: model.app.state.activeUser,
       reviewScore: userReview[index].score,
       reviewDescription: userReview[index].text,
     });
@@ -162,7 +156,6 @@ function showActiveParticipants(i) {
   let participants = '';
   let events = model.data.eventParticipants.filter((ep) => ep.eventId === i);
 
-  console.log(events);
   events.forEach((participant, index) => {
     let filter = model.data.users.find(
       (u) => u.userName === events[index].userName
@@ -176,20 +169,6 @@ function showActiveParticipants(i) {
     }"
 	    onclick="confirmParticipant(${index})"></img>`;
   });
-
-  // for (let index = 0; index < events.length; index++) {
-  // 	let filter = model.data.users.find(
-  // 		(u) => u.userName === events[index].userName
-  // 	);
-  // 	participants += `<img src="${
-  // 		filter.userProfileImg
-  // 	}" class="eventParticipantsFixed" style="${
-  // 		events[index].isConfirmed
-  // 			? "border: 2px solid #38FF17;"
-  // 			: "border: 2px solid #FF1717;"
-  // 	}"
-  // 	onclick="confirmParticipant(${index})"></img>`;
-  // }
 
   return participants;
 }

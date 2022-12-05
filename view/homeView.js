@@ -1,8 +1,5 @@
 // Main Home View For the app
 function homeView() {
-  let header = drawHeaderHome();
-  let content = drawCards();
-  let footer = drawFooter();
   document.getElementById('app').innerHTML = `
   ${drawHeaderHome()}
   <div class="contentContainer">${drawCards()}</div>
@@ -42,8 +39,12 @@ function filterEvents() {
 }
 
 function drawCards() {
-  // console.log(arrToShow);
   let cardsHtml = '';
+  if (model.app.subPage === 'forYou') {
+    arrToShow = model.data.events.filter(
+      (event) => event.eventCategory === 'Styrke'
+    );
+  }
   if (!arrToShow.length) {
     cardsHtml = `<div class="noResult">Det er ingen økter som passer det valgte filteret...</div>`;
   }

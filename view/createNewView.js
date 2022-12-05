@@ -35,10 +35,17 @@ function drawNewEvent() {
   }" type="datetime-local" onchange="model.inputs.newEventTimeDate = this.value; formatDateTime(this.value)">
 
   <div class="newEventIntensityContainer">
-    <button onclick="handleNewEventIntensity('minus')">-</button>
-    ${intensityIconSVG}
-    ${model.inputs.newEventIntensity}
-    <button onclick="handleNewEventIntensity('plus')">+</button>
+    <div  onclick="${
+      model.inputs.newEventIntensity >= 2
+        ? `handleNewEventIntensity('minus')`
+        : ''
+    }">${minusIcon}</div>
+    ${changeIntensity()}
+    <div  onclick="${
+      model.inputs.newEventIntensity <= 3
+        ? `handleNewEventIntensity('plus')`
+        : ''
+    }">${plusIcon}</div>
   </div>
 
   <div class="newEventDescriptionContainer">
@@ -85,7 +92,6 @@ function drawCategoriesList() {
 }
 
 const successCallback = (position) => {
-  // console.log(position);
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
   setLocation(long, lat);
@@ -94,3 +100,30 @@ const successCallback = (position) => {
 const errorCallback = (error) => {
   console.log(error);
 };
+
+function changeIntensity() {
+  let intensityIconSVG;
+  switch (model.inputs.newEventIntensity) {
+    case 1:
+      intensityIconSVG = `<svg width="34" height="34" viewBox="0 0 25 24" fill="none" xmlns="http:www.w3.org/2000/svg">
+      <path d="M19.764 24V0H24.5304V24H19.764ZM13.4089 6H18.1752V24H13.4089V6ZM7.05375 12H11.8201V24H7.05375V12ZM0.698608 18H5.46496V24H0.698608V18Z" fill="#38FF17"/>
+      </svg>`;
+      break;
+    case 2:
+      intensityIconSVG = `<svg width="34" height="34" viewBox="0 0 25 24" fill="none" xmlns="http:www.w3.org/2000/svg">
+      <path d="M19.764 24V0H24.5304V24H19.764ZM13.4089 6H18.1752V24H13.4089V6ZM7.05375 12H11.8201V24H7.05375V12ZM0.698608 18H5.46496V24H0.698608V18Z" fill="#FFC700"/>
+      </svg>`;
+      break;
+    case 3:
+      intensityIconSVG = `<svg width="34" height="34" viewBox="0 0 25 24" fill="none" xmlns="http:www.w3.org/2000/svg">
+      <path d="M19.764 24V0H24.5304V24H19.764ZM13.4089 6H18.1752V24H13.4089V6ZM7.05375 12H11.8201V24H7.05375V12ZM0.698608 18H5.46496V24H0.698608V18Z" fill="#F24E1E"/>
+      </svg>`;
+      break;
+    case 4:
+      intensityIconSVG = `<svg width="34" height="34" viewBox="0 0 25 24" fill="none" xmlns="http:www.w3.org/2000/svg">
+      <path d="M19.764 24V0H24.5304V24H19.764ZM13.4089 6H18.1752V24H13.4089V6ZM7.05375 12H11.8201V24H7.05375V12ZM0.698608 18H5.46496V24H0.698608V18Z" fill="#FF0000"/>
+      </svg>`;
+      break;
+  }
+  return intensityIconSVG;
+}

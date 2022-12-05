@@ -2,7 +2,7 @@ let model = {
   //app
   app: {
     //What page you are on
-    activePage: 'home',
+    activePage: 'createNewEvent',
     subPage: 'home',
     pages: [
       {
@@ -341,7 +341,7 @@ let model = {
       {
         eventId: 4,
         isConfirmed: true,
-        hasReviewed: true,
+        hasReviewed: false,
         userName: 'Løftekongen86',
       },
       {
@@ -378,7 +378,7 @@ let model = {
         eventCategory: 'Løping',
         eventSubCategory: 'Friløp',
         eventIntensity: 1,
-        eventDate: '25.09.22',
+        eventDate: '05.01.23',
         eventTime: '12:00',
         eventDescTitle: 'Overkommelig skogstur for alle som vil',
         eventDescription:
@@ -397,7 +397,7 @@ let model = {
         eventCategory: 'Løping',
         eventSubCategory: 'Friløp',
         eventIntensity: 1,
-        eventDate: '5.10.22',
+        eventDate: '07.01.23',
         eventTime: '12:00',
         eventDescTitle: 'En kort luftetur',
         eventDescription:
@@ -417,7 +417,7 @@ let model = {
         eventCategory: 'Styrke',
         eventSubCategory: 'Rygg',
         eventIntensity: 4,
-        eventDate: '13.10.22',
+        eventDate: '09.01.23',
         eventTime: '15:00',
         eventDescTitle: 'FRAM MED RYGGEN',
         eventDescription:
@@ -436,8 +436,8 @@ let model = {
         eventCategory: 'Styrke',
         eventSubCategory: 'Biceps',
         eventIntensity: 4,
-        eventDate: '17.10.22',
-        eventTime: '10:00',
+        eventDate: '09.01.23',
+        eventTime: '19:00',
         eventDescTitle: 'Tøff økt for de som vil pumpe på Roars',
         eventDescription:
           'Det er fredan og det betyr at det er tid for å pumpe litt jern igjen. Vi kjører en heftig økt for å blodtrimme bissane',
@@ -455,8 +455,8 @@ let model = {
         eventCategory: 'Styrke',
         eventSubCategory: 'Rygg',
         eventIntensity: 2,
-        eventDate: '22.11.22',
-        eventTime: '19:00',
+        eventDate: '12.01.23',
+        eventTime: '14:00',
         eventDescTitle: 'Klatring og akrobatikk for nybegynnere',
         eventDescription:
           'Jeg er så heldig å ha fått låne ribbeveggen på Berg Skole. Vi kjører litt klatring og diverse akrobatiske øvelser. Vell møtt!',
@@ -474,7 +474,7 @@ let model = {
         eventCategory: 'Sykling',
         eventSubCategory: 'Spinning',
         eventIntensity: 3,
-        eventDate: '29.10.22',
+        eventDate: '15.01.23',
         eventTime: '14:00',
         eventDescTitle: 'Uforventet Spinning økt',
         eventDescription:
