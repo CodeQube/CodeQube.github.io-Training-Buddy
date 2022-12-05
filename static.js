@@ -1,13 +1,47 @@
 function drawHeaderHome() {
-	let headerHTML = /*HTML*/ `
+  let headerHTML = /*HTML*/ `
   <div class="headerHomeContainer">
     <div class="filterContainer">
-      <div class="filterIcon">${filterIcon}
+      <div class="filterIcon">${filterIconfunc()}
+        <div class="filterMenu" style="${
+          model.app.state.filterList === false ? 'display:none' : ''
+        }">
+        <div>
+        <input onclick="setFilteredCategory(this.name)" type="checkbox" name="" ${
+          model.inputs.filters.category == '' ? 'checked' : ''
+        }>
+        <label for="ingen">Alle</label>
       </div>
-      <div class="searchIcon" >${searchIconfunc()}
+        <div>
+          <input onclick="setFilteredCategory(this.name)" type="checkbox" name="Løping" ${
+            model.inputs.filters.category == 'Løping' ? 'checked' : ''
+          }>
+          <label for="løping">Løping</label>
+        </div>
+        <div>
+          <input onclick="setFilteredCategory(this.name)" type="checkbox" name="Styrke" ${
+            model.inputs.filters.category == 'Styrke' ? 'checked' : ''
+          } >
+          <label for="styrke">Styrke</label>
+          </div>
+          <div>
+            <input onclick="setFilteredCategory(this.name)" type="checkbox" name="Sykling" ${
+              model.inputs.filters.category == 'Sykling' ? 'checked' : ''
+            }>
+            <label for="sykling">Sykling</label>
+          </div>
+          <div>
+            <input onclick="setFilteredCategory(this.name)" type="checkbox" name="Svømming" ${
+              model.inputs.filters.category == 'Svømming' ? 'checked' : ''
+            }>
+            <label for="svømming">Svømming</label>
+          </div>
+        </div>
+      </div>
+      <div class="searchIcon">${searchIconfunc()}
       <input style="${
-				model.app.state.searchBar === false ? "display:none" : ""
-			}"type="text" placeholder="Søk etter økt her">
+        model.app.state.searchBar === false ? 'display:none' : ''
+      }"type="text" placeholder="Søk etter økt her">
       </div>
     </div>
     <div class="headerPages">
@@ -18,20 +52,34 @@ function drawHeaderHome() {
     </div>
   </div>
   `;
-	return headerHTML;
+  return headerHTML;
 }
 
+function setFilteredCategory(category) {
+  model.inputs.filters.category = category;
+  filterEvents();
+  mainView();
+}
+
+function makeFilter() {
+  model.app.state.filterList = !model.app.state.filterList;
+  mainView();
+}
+
+function filterIconfunc() {
+  return `<div onclick="makeFilter()">${filterIcon}</div>`;
+}
 function searchIconfunc() {
-	return `<div onclick="makeSearchBar()">${searchIcon}</div>`;
+  return `<div onclick="makeSearchBar()">${searchIcon}</div>`;
 }
 
 function makeSearchBar() {
-	model.app.state.searchBar = !model.app.state.searchBar;
-	mainView();
+  model.app.state.searchBar = !model.app.state.searchBar;
+  mainView();
 }
 
 function drawFooter() {
-	let footerHTML = `
+  let footerHTML = `
   <div class="footerContainer">
     <div onclick="setActivePage('home')" style="cursor: pointer;">${homeButton}</div>
     <div onclick="setActivePage('leaderboard')" style="cursor: pointer;">${leaderboardButton}</div>
@@ -40,11 +88,11 @@ function drawFooter() {
     <div onclick="userClick('${model.app.state.activeUser}')" style="cursor: pointer;">${profileButton}</div>
   </div>
   `;
-	return footerHTML;
+  return footerHTML;
 }
 
 function drawConfirmLocation(str) {
-	let confirmLocationHTML = `
+  let confirmLocationHTML = `
   <div class="confirmLocationContainer">
   <span>Du befinner deg i: ${model.inputs.newEventLocation} </br>
   Bekreft lokasjon
@@ -53,5 +101,5 @@ function drawConfirmLocation(str) {
   <button onclick="handleLocation('nei')">Nei</button>
   </div>
   `;
-	return confirmLocationHTML;
+  return confirmLocationHTML;
 }
