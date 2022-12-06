@@ -133,17 +133,17 @@ let model = {
           {
             reviewSubmitter: 'jensintens',
             reviewScore: 5,
-            reviewDescription: 'Morsom kar',
+            reviewDescription: 'Intensivt og morsomt å trene med',
           },
           {
             reviewSubmitter: 'britt.elin69',
             reviewScore: 4,
-            reviewDescription: 'hehe',
+            reviewDescription: 'Hyggelig å ha med i skogen',
           },
           {
             reviewSubmitter: 'kjellwastaken',
             reviewScore: 5,
-            reviewDescription: 'hallo',
+            reviewDescription: 'Imponerende sterk',
           },
         ],
       },
